@@ -1,0 +1,1370 @@
+/* ============================================================
+   EPIRUS ASSETS — Design System
+   Palette : Parchment #F4EFE6 · Night #1C1C1A · Gold #B8924A
+   Fonts   : Cormorant Garamond (headings) · DM Sans (body/UI)
+   Rules   : no shadows · outlined buttons · left-aligned · sentence case
+   ============================================================ */
+
+/* ── 1. Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg:          #F4EFE6;
+  --night:       #1C1C1A;
+  --gold:        #B8924A;
+  --gold-dim:    rgba(184, 146, 74, 0.10);
+  --muted:       #7A746E;
+  --line:        rgba(28, 28, 26, 0.10);
+  --line-md:     rgba(28, 28, 26, 0.20);
+
+  --serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:   'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --max:     1200px;
+  --gutter:  clamp(20px, 5vw, 72px);
+  --gap:     clamp(24px, 3vw, 48px);
+  --section: clamp(72px, 9vw, 120px);
+  --nav-h:   96px;
+
+  --ease:    0.22s ease;
+  --ease-md: 0.36s ease;
+}
+
+/* ── 2. Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--night);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img, video { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+a { color: inherit; }
+input, select, textarea { font-family: inherit; }
+ul { list-style: none; }
+
+/* ── 3. Typography scale ───────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.display {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 108px);
+  font-weight: 500;
+  line-height: 0.97;
+  letter-spacing: -0.025em;
+}
+
+.h1 { font-size: clamp(38px, 5.5vw, 76px); }
+.h2 { font-size: clamp(28px, 3.5vw, 52px); }
+.h3 { font-size: clamp(22px, 2.5vw, 34px); }
+.h4 { font-size: clamp(18px, 2vw, 24px); }
+
+.lead {
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.label-gold {
+  color: var(--gold);
+}
+
+.body-sm {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ── 4. Layout utilities ───────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section);
+}
+
+.section-sm {
+  padding-block: clamp(48px, 6vw, 80px);
+}
+
+.border-top { border-top: 1px solid var(--line); }
+.border-bottom { border-bottom: 1px solid var(--line); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--gap);
+}
+
+.flex-between {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+
+/* ── 5. Navigation ─────────────────────────────────────────── */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(244, 239, 230, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--ease);
+}
+
+.nav {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav-logo img {
+  height: 90px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color var(--ease);
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--night);
+}
+
+/* Gold CTA link in nav */
+.nav-links .nav-cta > a {
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 7px 18px;
+  transition: background var(--ease), color var(--ease);
+}
+
+.nav-links .nav-cta > a:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* Coming soon link */
+.nav-coming-soon > a {
+  opacity: 0.32;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Mobile hamburger */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+  margin-left: 16px;
+}
+
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--night);
+  transition: transform var(--ease), opacity var(--ease);
+  transform-origin: center;
+}
+
+.nav-burger.is-open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.is-open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+@media (max-width: 780px) {
+  .nav-burger { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    inset: var(--nav-h) 0 0 0;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 0 32px;
+    transform: translateX(100%);
+    transition: transform var(--ease-md);
+    border-top: 1px solid var(--line);
+    overflow-y: auto;
+    pointer-events: none;
+  }
+
+  .nav-links.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 16px var(--gutter);
+    font-size: 16px;
+    color: var(--night);
+  }
+
+  .nav-links .nav-cta > a {
+    border: none;
+    padding: 16px var(--gutter);
+    color: var(--gold);
+  }
+
+  .nav-coming-soon > a {
+    padding: 16px var(--gutter);
+    opacity: 0.32;
+  }
+}
+
+/* ── 6. Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid var(--night);
+  background: transparent;
+  color: var(--night);
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn:hover {
+  background: var(--night);
+  color: var(--bg);
+}
+
+/* Gold — one per section */
+.btn-gold {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-gold:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-sm {
+  padding: 9px 20px;
+  font-size: 12px;
+}
+
+.btn-wide {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── 7. Hero — home ────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - var(--nav-h));
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section) var(--gap) var(--section) var(--gutter);
+}
+
+.hero-kicker {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 6.5vw, 88px);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+
+.hero-lead {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 46ch;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+  background: rgba(28, 28, 26, 0.04);
+}
+
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── 8. Page hero — interior pages ────────────────────────── */
+.page-hero {
+  padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero-kicker {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.page-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 68px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+  margin-bottom: 22px;
+}
+
+.page-hero-lead {
+  font-size: clamp(15px, 1.3vw, 17px);
+  color: var(--muted);
+  max-width: 55ch;
+  line-height: 1.7;
+}
+
+/* ── 9. Stats strip ────────────────────────────────────────── */
+.stats-strip {
+  border-bottom: 1px solid var(--line);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--line);
+  gap: 1px;
+}
+
+.stat {
+  background: var(--bg);
+  padding: 40px var(--gutter);
+}
+
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 500;
+  color: var(--night);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 26ch;
+  line-height: 1.5;
+}
+
+/* ── 10. Content section (text + image) ────────────────────── */
+.content-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+.content-pair.reverse .content-image { order: -1; }
+
+.content-text .label { margin-bottom: 18px; }
+
+.content-text h2 {
+  font-size: clamp(26px, 3vw, 44px);
+  margin-bottom: 20px;
+}
+
+.content-text p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 14px;
+  max-width: 50ch;
+}
+
+.content-text p + .btn { margin-top: 16px; }
+
+.content-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.content-image:hover img { transform: scale(1.03); }
+
+/* ── 11. Property cards ────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--gap);
+}
+
+.prop-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--night);
+  transition: border-color var(--ease);
+  background: var(--bg);
+}
+
+.prop-card:hover {
+  border-color: rgba(184, 146, 74, 0.5);
+}
+
+.prop-card-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgba(28, 28, 26, 0.05);
+  flex-shrink: 0;
+}
+
+.prop-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.prop-card:hover .prop-card-image img { transform: scale(1.05); }
+
+.prop-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+}
+
+.prop-card-location {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.prop-card-name {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  line-height: 1.12;
+  margin-bottom: 4px;
+}
+
+.prop-card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.prop-card-meta {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.prop-meta-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.prop-meta-value {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--night);
+}
+
+/* ── 12. Property detail: metrics bar ──────────────────────── */
+.metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--line);
+  gap: 1px;
+  border-bottom: 1px solid var(--line);
+}
+
+.metric {
+  background: var(--bg);
+  padding: 28px var(--gutter);
+}
+
+.metric-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--night);
+}
+
+/* ── 13. USP grid (2×2 on detail pages) ────────────────────── */
+.usp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  row-gap: clamp(32px, 4vw, 56px);
+}
+
+.usp-item {}
+
+.usp-number {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.usp-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.usp-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 44ch;
+}
+
+/* ── 14. Data tables ───────────────────────────────────────── */
+.table-wrap {
+  border: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 480px;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  background: rgba(28, 28, 26, 0.02);
+}
+
+.data-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.data-table td:first-child { color: var(--night); font-weight: 500; }
+.data-table td strong { color: var(--night); font-weight: 500; }
+.data-table tr:last-child td { border-bottom: none; }
+
+/* Comparison table (Epirus vs Athens/Islands) */
+.compare-table th:not(:first-child) {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--night);
+}
+
+.compare-table td:last-child {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ── 15. Forms ─────────────────────────────────────────────── */
+.form-block {
+  padding: var(--section) 0;
+  border-top: 1px solid var(--line);
+}
+
+.form-block-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-block-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 52ch;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 0;
+  max-width: 680px;
+}
+
+.form-full { grid-column: 1 / -1; }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+
+.form-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line-md);
+  padding: 10px 0;
+  font-size: 15px;
+  font-family: var(--sans);
+  color: var(--night);
+  outline: none;
+  transition: border-color var(--ease);
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(28, 28, 26, 0.28);
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A746E' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  padding-right: 22px;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.6;
+}
+
+.form-submit {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+/* Footer form (compact) */
+.form-compact {
+  max-width: 100%;
+}
+
+.form-compact .form-field {
+  margin-bottom: 20px;
+}
+
+/* ── 16. Footer ────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--line);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(40px, 7vw, 104px);
+  padding: clamp(56px, 7vw, 88px) 0;
+}
+
+.footer-brand-logo {
+  height: 30px;
+  width: auto;
+  margin-bottom: 32px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--ease);
+  width: fit-content;
+}
+
+.footer-nav a:hover { color: var(--night); }
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-contact {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--ease);
+  width: fit-content;
+}
+
+.footer-contact:hover { color: var(--night); }
+
+.footer-form-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.footer-form-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  max-width: 48ch;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-copyright a {
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.footer-copyright a:hover { color: var(--night); }
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-social a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color var(--ease);
+}
+
+.footer-social a:hover { color: var(--night); }
+
+/* ── 17. GDPR cookie banner ────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  max-width: 420px;
+  z-index: 200;
+  background: var(--night);
+  color: var(--bg);
+  padding: 24px 28px;
+  border: 1px solid rgba(244, 239, 230, 0.10);
+  transition: opacity var(--ease-md), transform var(--ease-md);
+}
+
+.cookie-banner.is-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+.cookie-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(244, 239, 230, 0.70);
+  margin-bottom: 18px;
+}
+
+.cookie-text a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn-accept {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 9px 20px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease);
+}
+
+.cookie-btn-accept:hover {
+  background: var(--gold);
+  color: var(--night);
+}
+
+.cookie-btn-reject {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 9px 20px;
+  background: transparent;
+  border: 1px solid rgba(244, 239, 230, 0.16);
+  color: rgba(244, 239, 230, 0.45);
+  cursor: pointer;
+  transition: border-color var(--ease), color var(--ease);
+}
+
+.cookie-btn-reject:hover {
+  border-color: rgba(244, 239, 230, 0.45);
+  color: rgba(244, 239, 230, 0.75);
+}
+
+/* ── 18. WhatsApp float ────────────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px;
+  height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 150;
+  transition: transform var(--ease), background var(--ease);
+}
+
+.wa-float:hover {
+  transform: scale(1.08);
+  background: #21BE5A;
+}
+
+.wa-float svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+/* ── 19. Tags / filter pills ───────────────────────────────── */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--gap);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid var(--line-md);
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--ease), color var(--ease);
+  font-family: var(--sans);
+}
+
+.tag:hover { border-color: var(--night); color: var(--night); }
+.tag.is-active { border-color: var(--night); color: var(--night); }
+
+/* ── 20. CTA band ──────────────────────────────────────────── */
+.cta-band {
+  padding: clamp(56px, 7vw, 96px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.cta-band-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-band-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 500;
+  max-width: 20ch;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.cta-band-text p {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 40ch;
+  line-height: 1.7;
+}
+
+/* ── 21. Triptych hero (property pages) ────────────────────── */
+.triptych {
+  width: 100%;
+  height: clamp(320px, 45vw, 580px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.triptych img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── 22. Breadcrumb ────────────────────────────────────────── */
+.breadcrumb {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.breadcrumb a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.04em;
+  transition: color var(--ease);
+}
+
+.breadcrumb a:hover { color: var(--night); }
+
+/* ── 23. Feature list (clean, no borders) ──────────────────── */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.feature-item-num {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.feature-item-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  color: var(--night);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.feature-item-body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* Restriction list (dash markers, same size) */
+.restriction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.restriction-item-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  color: var(--night);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.restriction-item-body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* Image that stretches to match adjacent text column */
+.img-stretch {
+  overflow: hidden;
+}
+
+.img-stretch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── 24. Golden Visa point list (legacy, kept for _components) */
+.visa-point-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  max-width: 640px;
+}
+
+.visa-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.visa-point:last-child { border-bottom: none; }
+
+.visa-point-marker {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 1px;
+  min-width: 20px;
+}
+
+.visa-point-text {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.visa-point-text strong { color: var(--night); font-weight: 500; }
+
+/* ── 24. Section heading ───────────────────────────────────── */
+.section-heading {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.section-heading .label { margin-bottom: 14px; }
+
+.section-heading h2 {
+  font-size: clamp(26px, 3vw, 44px);
+  max-width: 22ch;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.section-heading p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 55ch;
+  line-height: 1.7;
+}
+
+/* ── 25. Catalog CTA block (investments / GV properties pages) */
+.catalog-cta {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(48px, 6vw, 80px) 0;
+  background: var(--bg);
+}
+
+.catalog-cta-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  flex-wrap: wrap;
+}
+
+.catalog-cta-text {
+  flex: 1;
+  min-width: 240px;
+}
+
+.catalog-cta-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.catalog-cta-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+
+.catalog-cta-sub {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 48ch;
+  line-height: 1.7;
+}
+
+.catalog-cta-action {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Large gold button variant for catalog CTA */
+.btn-catalog {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn-catalog:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-catalog-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Inline catalog form (collapses to form on click) */
+.catalog-form-inline {
+  display: none;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+.catalog-form-inline.is-visible {
+  display: block;
+}
+
+/* ── 26. Accessibility ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── 26. Responsive breakpoints ────────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-image {
+    height: 56vw;
+    min-height: 280px;
+    order: -1;
+  }
+  .hero-image img {
+    position: static;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-text {
+    padding: 48px var(--gutter);
+  }
+  .content-pair { grid-template-columns: 1fr; }
+  .content-pair.reverse .content-image { order: unset; }
+  .footer-main { grid-template-columns: 1fr; }
+  .metrics-bar { grid-template-columns: 1fr 1fr; }
+  .usp-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .form { grid-template-columns: 1fr; }
+  .cta-band-inner { align-items: flex-start; }
+  .metrics-bar { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 440px) {
+  .metrics-bar { grid-template-columns: 1fr; }
+}
