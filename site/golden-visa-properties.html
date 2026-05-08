@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Visa properties in Greece — Epirus Assets</title>
+  <meta name="description" content="Curated selection of Golden Visa-eligible properties in Greece. EU residency from €250,000. Off-market assets in Epirus and Athens.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="nav-wrap">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav-logo" href="index.html"><img src="images/logo-light.png" alt="Epirus Assets"></a>
+      <ul class="nav-links" role="list">
+        <li><a href="epirus.html">Epirus</a></li>
+        <li><a href="investments.html">Investments</a></li>
+        <li><a href="golden-visa.html">Golden Visa</a></li>
+        <li class="nav-coming-soon"><a href="#" aria-disabled="true" tabindex="-1">Real estate</a></li>
+        <li class="nav-cta"><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Page hero ────────────────────────────────────────────── -->
+<section class="page-hero border-bottom">
+  <div class="wrap">
+    <p class="page-hero-kicker">Golden Visa properties</p>
+    <h1 class="page-hero-title">EU residency through Greek real estate</h1>
+    <p class="page-hero-lead">A curated selection of properties that qualify for the Greek Golden Visa program. Each asset meets the minimum investment threshold and comes with full legal documentation and due diligence on request.</p>
+  </div>
+</section>
+
+<!-- ── Properties catalog ───────────────────────────────────── -->
+<section class="section border-bottom">
+  <div class="wrap">
+    <!-- Property cards will be added here -->
+  </div>
+</section>
+
+<!-- ── Early access form ────────────────────────────────────── -->
+<section class="catalog-cta" id="early-access">
+  <div class="wrap">
+    <div class="catalog-cta-inner">
+      <div class="catalog-cta-text">
+        <p class="catalog-cta-eyebrow">Early access</p>
+        <h2 class="catalog-cta-title">Get the full list of Golden Visa-eligible properties</h2>
+        <p class="catalog-cta-sub">We share verified, off-market assets with qualified investors. Leave your contact and we will send the complete catalog with financial parameters and documentation.</p>
+      </div>
+      <div class="catalog-cta-action">
+        <button class="btn-catalog" id="catalog-open-btn"
+          onclick="document.getElementById('catalog-inline-form').classList.add('is-visible'); this.style.display='none'">
+          Request the full catalog
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="btn-catalog-note">We respond within one business day.</p>
+      </div>
+    </div>
+    <div class="catalog-form-inline" id="catalog-inline-form">
+      <form class="form" action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST">
+        <input type="hidden" name="source" value="Golden Visa properties page">
+        <div class="form-field">
+          <label class="form-label" for="cat-name">Your name</label>
+          <input class="form-input" id="cat-name" name="name" type="text" placeholder="e.g. Anna Müller" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-country">Country of residence</label>
+          <input class="form-input" id="cat-country" name="country" type="text" placeholder="e.g. Turkey">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-budget">Budget</label>
+          <select class="form-select" id="cat-budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under €500,000</option>
+            <option>€500,000 – €1,000,000</option>
+            <option>€1,000,000 – €3,000,000</option>
+            <option>€3,000,000 – €10,000,000</option>
+            <option>Over €10,000,000</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-citizenship">Citizenship</label>
+          <input class="form-input" id="cat-citizenship" name="citizenship" type="text" placeholder="e.g. Turkish">
+        </div>
+        <div class="form-field form-full">
+          <label class="form-label" for="cat-contact">Phone or email</label>
+          <input class="form-input" id="cat-contact" name="contact" type="text" placeholder="your preferred contact">
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div>
+        <img class="footer-brand-logo" src="images/logo-light.png" alt="Epirus Assets">
+        <nav class="footer-nav"><a href="epirus.html">Epirus</a><a href="investments.html">Investments</a><a href="golden-visa.html">Golden Visa</a><a href="golden-visa-properties.html">Golden Visa properties</a></nav>
+        <div class="footer-contacts">
+          <a href="mailto:info@epirusassets.com" class="footer-contact">info@epirusassets.com</a>
+          <a href="tel:+306983109914" class="footer-contact">+30 698 310 9914</a>
+          <a href="https://www.linkedin.com/company/epirus-assets/" class="footer-contact" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-form-title">List your property</p>
+        <p class="footer-form-sub">Tell us about the asset and we will respond within 24 hours.</p>
+        <form class="form form-compact" action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST">
+          <div class="form-field"><label class="form-label" for="fs-type">Property type</label><select class="form-select" id="fs-type" name="property_type"><option value="" disabled selected>Select</option><option>Apartment</option><option>House / Villa</option><option>Hotel / Hostel</option><option>Commercial space</option><option>Land / Plot</option></select></div>
+          <div class="form-field"><label class="form-label" for="fs-location">Location</label><input class="form-input" id="fs-location" name="location" type="text" placeholder="e.g. Ioannina, Sivota"></div>
+          <div class="form-field"><label class="form-label" for="fs-area">Area (m²)</label><input class="form-input" id="fs-area" name="area" type="text" placeholder="e.g. 220"></div>
+          <div class="form-field"><label class="form-label" for="fs-price">Asking price (€)</label><input class="form-input" id="fs-price" name="asking_price" type="text" placeholder="e.g. 750 000"></div>
+          <div class="form-field form-full"><label class="form-label" for="fs-contact">Your contact</label><input class="form-input" id="fs-contact" name="contact" type="text" placeholder="email or phone" autocomplete="email"></div>
+          <div class="form-submit"><button type="submit" class="btn btn-gold">Submit property</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© <span class="js-year"></span> Epirus Assets · <a href="mailto:info@epirusassets.com">info@epirusassets.com</a></p>
+      <div class="footer-social"><a href="https://www.linkedin.com/company/epirus-assets/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice">
+  <p class="cookie-text">We use cookies to understand how visitors navigate our site. See our <a href="#">privacy policy</a>.</p>
+  <div class="cookie-actions"><button class="cookie-btn-accept" id="cookie-accept">Accept</button><button class="cookie-btn-reject" id="cookie-reject">Decline</button></div>
+</div>
+<a class="wa-float" href="https://wa.me/306983109914" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="js/main.js"></script>
+</body>
+</html>

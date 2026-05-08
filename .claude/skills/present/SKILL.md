@@ -78,9 +78,9 @@ Two typefaces only. Load both from Google Fonts.
 | H1 | 36pt | 400 | Cormorant Garamond | Slide title — one per slide |
 | H2 | 24pt | 400 | Cormorant Garamond | Section headings |
 | H3 | 18pt | 500 | DM Sans | Card and subsection titles |
-| Body | 14pt | 400 | DM Sans | All prose and descriptions |
-| Small | 11pt | 400 | DM Sans | Captions, metadata, dates |
-| Label | 10pt | 500 | DM Sans | Uppercase spaced — locations, tags, stat names |
+| Body | 18pt | 400 | DM Sans | All prose and descriptions |
+| Small | 14pt | 400 | DM Sans | Captions, metadata, dates |
+| Label | 13pt | 500 | DM Sans | Uppercase spaced — locations, tags, stat names |
 
 **Capitalisation rules:**
 - Sentence case for all slide titles, headings, body copy, bullet points
@@ -118,7 +118,7 @@ font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;  /* Body */
 
 **Stat cards:**
 - Parchment background · 0.5px Pale Stone border · 6px radius
-- Label: 10px DM Sans · uppercase · Stone color · letter-spacing +0.08em
+- Label: 13px DM Sans · uppercase · Stone color · letter-spacing +0.08em
 - Value: 22px DM Sans · 500 weight · Night color
 - ROI and key financial figures: Gold — one per group, never more
 

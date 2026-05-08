@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epirus Assets — Component library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Demo labels only — not part of design system */
+    .demo-section { margin-bottom: 0; }
+    .demo-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184,146,74,0.7);
+      padding: 12px var(--gutter) 8px;
+      border-bottom: 1px dashed rgba(184,146,74,0.2);
+      background: rgba(184,146,74,0.03);
+    }
+    .demo-pad { padding: 48px var(--gutter); border-bottom: 1px solid var(--line); }
+    .demo-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<div class="demo-label">Component: navigation</div>
+<header class="nav-wrap">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav-logo" href="index.html">
+        <img src="images/logo-light.png" alt="Epirus Assets">
+      </a>
+      <ul class="nav-links">
+        <li><a href="epirus.html">Epirus</a></li>
+        <li><a href="investments.html" class="is-active">Investments</a></li>
+        <li><a href="golden-visa.html">Golden Visa</a></li>
+        <li class="nav-coming-soon"><a href="#" aria-disabled="true" tabindex="-1">Real estate</a></li>
+        <li class="nav-cta"><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ── TYPOGRAPHY ── -->
+<div class="demo-label">Component: typography scale</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <p class="label label-gold" style="margin-bottom:24px">Cormorant Garamond · Display / h1–h4</p>
+    <p class="display" style="margin-bottom:20px">The uncharted wealth of Greece</p>
+    <p class="h1" style="margin-bottom:16px">Real estate in Epirus</p>
+    <p class="h2" style="margin-bottom:14px">Investment properties in Ioannina</p>
+    <p class="h3" style="margin-bottom:12px">Heritage Residence — Tositsa street</p>
+    <p class="h4" style="margin-bottom:32px">Urban Suites & Secret Garden rooftop</p>
+
+    <p class="label" style="margin-bottom:24px">DM Sans · Lead / Body / Label</p>
+    <p class="lead" style="margin-bottom:16px">Epirus is one of Europe's least crowded investment markets — and one of the few where yield, growth, and quality of life still align.</p>
+    <p style="font-size:15px; color:var(--muted); max-width:58ch; line-height:1.7; margin-bottom:16px">The region draws 20% more tourists year on year and was ranked the most welcoming destination in Greece by Booking.com in 2026. Unlike the Aegean islands, it operates across four seasons — which changes the risk profile of hospitality assets fundamentally.</p>
+    <p class="body-sm">Small caption text · label · metadata</p>
+  </div>
+</div>
+
+<!-- ── BUTTONS ── -->
+<div class="demo-label">Component: buttons</div>
+<div class="demo-pad">
+  <div class="wrap demo-row">
+    <button class="btn">View investments</button>
+    <button class="btn btn-gold">Request details</button>
+    <button class="btn btn-sm">Learn more</button>
+    <button class="btn btn-sm btn-gold">Get in touch</button>
+    <a href="#" class="btn">Back to catalog</a>
+  </div>
+</div>
+
+<!-- ── STATS STRIP ── -->
+<div class="demo-label">Component: stats strip</div>
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-number">+20%</div>
+      <div class="stat-label">Annual tourism growth, outperforming national averages</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">#1</div>
+      <div class="stat-label">Most welcoming destination in Greece — Booking.com 2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">12 mo</div>
+      <div class="stat-label">Year-round season — four distinct demand drivers</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROPERTY CARDS ── -->
+<div class="demo-label">Component: property cards</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="cards-grid">
+
+      <a href="astoria.html" class="prop-card">
+        <div class="prop-card-image">
+          <img src="images/astoria.jpg" alt="Urban Suites, Ioannina">
+        </div>
+        <div class="prop-card-body">
+          <p class="prop-card-location">Ioannina, Epirus</p>
+          <h3 class="prop-card-name">Urban Suites & Secret Garden</h3>
+          <p class="prop-card-desc">Smart-luxury boutique hotel transformation. 30 keys, rooftop bar concept, full IoT integration.</p>
+          <div class="prop-card-meta">
+            <div>
+              <p class="prop-meta-label">Investment</p>
+              <p class="prop-meta-value">€1,750,000</p>
+            </div>
+            <div>
+              <p class="prop-meta-label">Target ROE</p>
+              <p class="prop-meta-value">19.1%</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="tositsa.html" class="prop-card">
+        <div class="prop-card-image">
+          <img src="images/tositsa-1.jpg" alt="Heritage Residence, Ioannina">
+        </div>
+        <div class="prop-card-body">
+          <p class="prop-card-location">Ioannina downtown</p>
+          <h3 class="prop-card-name">Heritage Residence</h3>
+          <p class="prop-card-desc">Listed neoclassical stone mansion. 343 m², 100 m from the castle. Fully restored, off-market.</p>
+          <div class="prop-card-meta">
+            <div>
+              <p class="prop-meta-label">Investment</p>
+              <p class="prop-meta-value">€900,000</p>
+            </div>
+            <div>
+              <p class="prop-meta-label">ROI range</p>
+              <p class="prop-meta-value">5–13%</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="athens.html" class="prop-card">
+        <div class="prop-card-image">
+          <img src="images/athens-2.jpg" alt="Athens Urban Lifestyle Hotel">
+        </div>
+        <div class="prop-card-body">
+          <p class="prop-card-location">Athens city centre</p>
+          <h3 class="prop-card-name">Athens Urban Lifestyle Hotel</h3>
+          <p class="prop-card-desc">9-floor shell & core hotel. 64 rooms, Acropolis-view rooftop pool. Golden Visa eligible.</p>
+          <div class="prop-card-meta">
+            <div>
+              <p class="prop-meta-label">Price</p>
+              <p class="prop-meta-value">€12,000,000</p>
+            </div>
+            <div>
+              <p class="prop-meta-label">Yield</p>
+              <p class="prop-meta-value">8.25%</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── METRICS BAR ── -->
+<div class="demo-label">Component: metrics bar (property detail pages)</div>
+<div class="metrics-bar">
+  <div class="metric">
+    <p class="metric-label">Investment basis</p>
+    <p class="metric-value">€1,750,000</p>
+  </div>
+  <div class="metric">
+    <p class="metric-label">Keys</p>
+    <p class="metric-value">30</p>
+  </div>
+  <div class="metric">
+    <p class="metric-label">Target ROE</p>
+    <p class="metric-value">19.1%</p>
+  </div>
+  <div class="metric">
+    <p class="metric-label">Location</p>
+    <p class="metric-value">Ioannina</p>
+  </div>
+</div>
+
+<!-- ── USP GRID ── -->
+<div class="demo-label">Component: USP grid (property detail pages)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="usp-grid">
+      <div class="usp-item">
+        <p class="usp-number">01</p>
+        <h3 class="usp-title">Profit geometry</h3>
+        <p class="usp-body">Engineering a 42% increase in inventory — from 21 to 30 rooms — within the existing building envelope. Revenue per square metre rises without expanding the footprint.</p>
+      </div>
+      <div class="usp-item">
+        <p class="usp-number">02</p>
+        <h3 class="usp-title">Triple-A location</h3>
+        <p class="usp-body">Situated at Ioannina's most strategic commercial intersection, with constant foot traffic from both business and leisure travellers.</p>
+      </div>
+      <div class="usp-item">
+        <p class="usp-number">03</p>
+        <h3 class="usp-title">Smart-luxury model</h3>
+        <p class="usp-body">Full IoT integration — contactless check-in, smart climate control, centralised management — enables high-margin operations with reduced staffing.</p>
+      </div>
+      <div class="usp-item">
+        <p class="usp-number">04</p>
+        <h3 class="usp-title">The Secret Garden</h3>
+        <p class="usp-body">A 160 m² rooftop bar concept designed as an urban oasis. A competitive edge in the local F&B market and an additional high-margin revenue stream.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DATA TABLE ── -->
+<div class="demo-label">Component: data table (financial parameters)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Scenario A — conservative</th>
+            <th>Scenario B — high-yield</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total investment</td>
+            <td>€900,000</td>
+            <td>€900,000</td>
+          </tr>
+          <tr>
+            <td>Annual net profit</td>
+            <td>€45,000</td>
+            <td><strong>€116,700</strong></td>
+          </tr>
+          <tr>
+            <td>ROI (100% equity)</td>
+            <td>5.0%</td>
+            <td>13.0%</td>
+          </tr>
+          <tr>
+            <td>ROI (50% leverage)</td>
+            <td>3.8%</td>
+            <td><strong>19.7%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── COMPARISON TABLE ── -->
+<div class="demo-label">Component: comparison table (The 365 advantage)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="table-wrap" style="max-width:640px">
+      <table class="data-table compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Athens / Islands</th>
+            <th>Epirus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seasonality</td>
+            <td>4–6 months</td>
+            <td>12 months (4 seasons)</td>
+          </tr>
+          <tr>
+            <td>Entry point</td>
+            <td>High (€€€)</td>
+            <td>Attractive (€€)</td>
+          </tr>
+          <tr>
+            <td>Growth potential</td>
+            <td>Capped / stable</td>
+            <td>High — market in ascent</td>
+          </tr>
+          <tr>
+            <td>Demand type</td>
+            <td>Mass market</td>
+            <td>Exclusive, tech, eco-luxury</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── TAG FILTER ── -->
+<div class="demo-label">Component: tag filter (investments catalog)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="tag-row">
+      <button class="tag is-active" data-filter="all">All assets</button>
+      <button class="tag" data-filter="hotel">Hotel projects</button>
+      <button class="tag" data-filter="heritage">Heritage</button>
+      <button class="tag" data-filter="residential">Residential</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CATALOG CTA ── -->
+<div class="demo-label">Component: catalog CTA — investments / golden-visa-properties pages</div>
+<section class="catalog-cta" id="get-catalog">
+  <div class="wrap">
+    <div class="catalog-cta-inner">
+      <div class="catalog-cta-text">
+        <p class="catalog-cta-eyebrow">Full property catalog</p>
+        <h2 class="catalog-cta-title">Get the complete list of investment properties</h2>
+        <p class="catalog-cta-sub">We share verified, off-market assets with qualified investors. Leave your contact and we will send the full catalog with financial parameters.</p>
+      </div>
+      <div class="catalog-cta-action">
+        <button class="btn-catalog" id="catalog-open-btn" onclick="document.getElementById('catalog-inline-form').classList.toggle('is-visible'); this.style.display='none'">
+          Get the full catalog
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="btn-catalog-note">We respond within one business day.</p>
+      </div>
+    </div>
+    <div class="catalog-form-inline" id="catalog-inline-form">
+      <form class="form" action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="cat-name">Your name</label>
+          <input class="form-input" id="cat-name" name="name" type="text" placeholder="e.g. Anna Müller" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-country">Country of residence</label>
+          <input class="form-input" id="cat-country" name="country" type="text" placeholder="e.g. Germany">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-budget">Budget</label>
+          <select class="form-select" id="cat-budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under €500,000</option>
+            <option>€500,000 – €1,000,000</option>
+            <option>€1,000,000 – €3,000,000</option>
+            <option>€3,000,000 – €10,000,000</option>
+            <option>Over €10,000,000</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cat-interest">Primary interest</label>
+          <select class="form-select" id="cat-interest" name="interest">
+            <option value="" disabled selected>Select</option>
+            <option>Golden Visa residency</option>
+            <option>Investment / yield</option>
+            <option>Personal residence</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field form-full">
+          <label class="form-label" for="cat-contact">Phone or email</label>
+          <input class="form-input" id="cat-contact" name="contact" type="text" placeholder="your preferred contact">
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISA POINT LIST ── -->
+<div class="demo-label">Component: visa point list (Golden Visa page)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="visa-point-list">
+      <div class="visa-point">
+        <span class="visa-point-marker">✓</span>
+        <p class="visa-point-text"><strong>Strategic entry into the European market</strong> — a 5-year renewable residence permit with Schengen Zone access.</p>
+      </div>
+      <div class="visa-point">
+        <span class="visa-point-marker">✓</span>
+        <p class="visa-point-text"><strong>Family inclusion</strong> — spouse and dependent children covered under a single application.</p>
+      </div>
+      <div class="visa-point">
+        <span class="visa-point-marker">✓</span>
+        <p class="visa-point-text"><strong>No residence requirement</strong> — you are not required to live in Greece to maintain the permit.</p>
+      </div>
+      <div class="visa-point">
+        <span class="visa-point-marker">✓</span>
+        <p class="visa-point-text"><strong>Stable rental income</strong> — long-term leasing is permitted and supported by growing professional demand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM: BUYER ── -->
+<div class="demo-label">Form type 1: buyer (Home + property pages)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="form-block" style="border-top:none; padding-top:0">
+      <p class="form-block-title">Request further details</p>
+      <p class="form-block-sub">Leave your contact and we will follow up within one business day.</p>
+      <form class="form" action="https://formspree.io/f/YOUR_BUYER_FORM_ID" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="b-name">Your name</label>
+          <input class="form-input" id="b-name" name="name" type="text" placeholder="e.g. Anna Müller" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="b-country">Country of residence</label>
+          <input class="form-input" id="b-country" name="country" type="text" placeholder="e.g. Germany" autocomplete="country-name">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="b-budget">Budget</label>
+          <select class="form-select" id="b-budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under €500,000</option>
+            <option>€500,000 – €1,000,000</option>
+            <option>€1,000,000 – €3,000,000</option>
+            <option>€3,000,000 – €10,000,000</option>
+            <option>Over €10,000,000</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="b-interest">Primary interest</label>
+          <select class="form-select" id="b-interest" name="interest">
+            <option value="" disabled selected>Select</option>
+            <option>Golden Visa residency</option>
+            <option>Investment / yield</option>
+            <option>Personal residence</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field form-full">
+          <label class="form-label" for="b-contact">Phone or email</label>
+          <input class="form-input" id="b-contact" name="contact" type="text" placeholder="your preferred contact" autocomplete="email">
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold">Send inquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM: SELLER ── -->
+<div class="demo-label">Form type 2: seller (footer + dedicated block)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="form-block" style="border-top:none; padding-top:0">
+      <p class="form-block-title">List your property</p>
+      <p class="form-block-sub">Tell us about the asset. We will respond within 24 hours.</p>
+      <form class="form" action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="s-type">Property type</label>
+          <select class="form-select" id="s-type" name="property_type">
+            <option value="" disabled selected>Select</option>
+            <option>Apartment</option>
+            <option>House / Villa</option>
+            <option>Hotel / Hostel</option>
+            <option>Commercial space</option>
+            <option>Land / Plot</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="s-location">Location</label>
+          <input class="form-input" id="s-location" name="location" type="text" placeholder="e.g. Ioannina, Sivota">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="s-area">Area (m²)</label>
+          <input class="form-input" id="s-area" name="area" type="text" placeholder="e.g. 220">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="s-price">Asking price (€)</label>
+          <input class="form-input" id="s-price" name="asking_price" type="text" placeholder="e.g. 750 000">
+        </div>
+        <div class="form-field form-full">
+          <label class="form-label" for="s-contact">Your contact</label>
+          <input class="form-input" id="s-contact" name="contact" type="text" placeholder="email or phone" autocomplete="email">
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold">Submit property</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ── FORM: VISA CONSULTATION ── -->
+<div class="demo-label">Form type 3: visa consultation (golden-visa.html)</div>
+<div class="demo-pad">
+  <div class="wrap">
+    <div class="form-block" style="border-top:none; padding-top:0">
+      <p class="form-block-title">Request a free consultation</p>
+      <p class="form-block-sub">We will map the options available to you and outline next steps — no obligation.</p>
+      <form class="form" action="https://formspree.io/f/YOUR_VISA_FORM_ID" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="v-citizenship">Your citizenship</label>
+          <input class="form-input" id="v-citizenship" name="citizenship" type="text" placeholder="e.g. Turkish, Israeli, UAE">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="v-budget">Investment budget</label>
+          <select class="form-select" id="v-budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>€250,000 – €400,000</option>
+            <option>€400,000 – €800,000</option>
+            <option>€800,000 – €2,000,000</option>
+            <option>Over €2,000,000</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="v-urgency">Timeline</label>
+          <select class="form-select" id="v-urgency" name="timeline">
+            <option value="" disabled selected>Select</option>
+            <option>Within 3 months</option>
+            <option>3–6 months</option>
+            <option>6–12 months</option>
+            <option>Exploring options — no fixed date</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="v-contact">Your contact</label>
+          <input class="form-input" id="v-contact" name="contact" type="text" placeholder="email or phone" autocomplete="email">
+        </div>
+        <div class="form-submit form-full">
+          <button type="submit" class="btn btn-gold">Request consultation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA BAND ── -->
+<div class="demo-label">Component: CTA band</div>
+<div class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div class="cta-band-text">
+        <h2>Properties qualifying for the Golden Visa</h2>
+        <p>We are building a curated list of verified, compliant assets across Greece. Get early access.</p>
+      </div>
+      <a href="golden-visa-properties.html" class="btn btn-gold">View properties</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="demo-label">Component: footer (with seller form)</div>
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-main">
+
+      <div>
+        <img class="footer-brand-logo" src="images/logo-light.png" alt="Epirus Assets">
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="epirus.html">Epirus</a>
+          <a href="investments.html">Investments</a>
+          <a href="golden-visa.html">Golden Visa</a>
+          <a href="golden-visa-properties.html">Golden Visa properties</a>
+        </nav>
+        <div class="footer-contacts">
+          <a href="mailto:info@epirusassets.com" class="footer-contact">info@epirusassets.com</a>
+          <a href="tel:+306983109914" class="footer-contact">+30 698 310 9914</a>
+          <a href="https://www.linkedin.com/company/epirus-assets/" class="footer-contact" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-form-title">List your property</p>
+        <p class="footer-form-sub">Tell us about the asset and we will respond within 24 hours.</p>
+        <form class="form form-compact" action="https://formspree.io/f/YOUR_SELLER_FORM_ID" method="POST">
+          <div class="form-field">
+            <label class="form-label" for="fs-type">Property type</label>
+            <select class="form-select" id="fs-type" name="property_type">
+              <option value="" disabled selected>Select</option>
+              <option>Apartment</option>
+              <option>House / Villa</option>
+              <option>Hotel / Hostel</option>
+              <option>Commercial space</option>
+              <option>Land / Plot</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="fs-location">Location</label>
+            <input class="form-input" id="fs-location" name="location" type="text" placeholder="e.g. Ioannina, Sivota">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="fs-area">Area (m²)</label>
+            <input class="form-input" id="fs-area" name="area" type="text" placeholder="e.g. 220">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="fs-price">Asking price (€)</label>
+            <input class="form-input" id="fs-price" name="asking_price" type="text" placeholder="e.g. 750 000">
+          </div>
+          <div class="form-field form-full">
+            <label class="form-label" for="fs-contact">Your contact</label>
+            <input class="form-input" id="fs-contact" name="contact" type="text" placeholder="email or phone" autocomplete="email">
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold">Submit property</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © <span class="js-year"></span> Epirus Assets ·
+        <a href="mailto:info@epirusassets.com">info@epirusassets.com</a>
+      </p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/epirus-assets/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── COOKIE BANNER ── -->
+<div class="demo-label" style="position:relative;z-index:999">Component: GDPR cookie banner (bottom-left, fixed)</div>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie notice">
+  <p class="cookie-text">
+    We use cookies to understand how visitors use our site.
+    See our <a href="#">privacy policy</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn-accept" id="cookie-accept">Accept</button>
+    <button class="cookie-btn-reject" id="cookie-reject">Decline</button>
+  </div>
+</div>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a class="wa-float" href="https://wa.me/306983109914" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
