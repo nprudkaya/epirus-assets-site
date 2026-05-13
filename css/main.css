@@ -93,6 +93,11 @@ h1, h2, h3, h4, h5 {
   color: var(--muted);
 }
 
+p {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.7;
+}
+
 /* ── 4. Layout utilities ───────────────────────────────────── */
 .wrap {
   width: 100%;
@@ -475,7 +480,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .content-text p {
-  font-size: 15px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   line-height: 1.75;
   margin-bottom: 14px;
@@ -560,7 +565,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .prop-card-desc {
-  font-size: 13px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   line-height: 1.65;
   flex: 1;
@@ -644,7 +649,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .usp-body {
-  font-size: 16px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   line-height: 1.7;
   max-width: 44ch;
@@ -659,7 +664,7 @@ h1, h2, h3, h4, h5 {
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: clamp(15px, 1.4vw, 17px);
   min-width: 480px;
 }
 
@@ -1058,7 +1063,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .cta-band-text p {
-  font-size: 14px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   max-width: 40ch;
   line-height: 1.7;
@@ -1123,7 +1128,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .feature-item-body {
-  font-size: 15px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   line-height: 1.75;
 }
@@ -1145,7 +1150,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .restriction-item-body {
-  font-size: 15px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   line-height: 1.75;
 }
@@ -1258,7 +1263,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .catalog-cta-sub {
-  font-size: 14px;
+  font-size: clamp(15px, 1.4vw, 17px);
   color: var(--muted);
   max-width: 48ch;
   line-height: 1.7;
