@@ -540,6 +540,17 @@ p {
 
 .prop-card:hover .prop-card-image img { transform: scale(1.05); }
 
+.prop-card-image--full {
+  aspect-ratio: unset;
+  height: 280px;
+  background: #F4EFE6;
+}
+.prop-card-image--full img {
+  object-fit: contain;
+  object-position: center bottom;
+}
+.prop-card:hover .prop-card-image--full img { transform: scale(1.03); }
+
 .prop-card-body {
   padding: 24px;
   display: flex;
