@@ -3,12 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CavoBlu Preveza — Ionian Coast Boutique Hotel Investment · Epirus Assets</title>
+  <title>CavoBlu Preveza — Seafront Boutique Hotel Investment · Epirus Assets</title>
   <meta name="description" content="70% built boutique hotel on a private Ionian cape. 20 luxury suites, 180° sunset views, €500K approved state subsidy. Three investment scenarios from €2.8M. Best ROE 23%.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Photo mosaic hero ── */
+    .photo-mosaic {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: 300px 260px;
+      gap: 3px;
+      background: #1C1C1A;
+    }
+    .photo-mosaic-main {
+      grid-row: 1 / 3;
+      overflow: hidden;
+    }
+    .photo-mosaic-side {
+      overflow: hidden;
+    }
+    .photo-mosaic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .photo-mosaic img:hover { transform: scale(1.03); }
+
+    /* ── Full-bleed image strip ── */
+    .img-strip {
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+    }
+    .img-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    /* ── Scenario cards ── */
+    .scenario-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .scenario-card {
+      padding: 32px 28px;
+      border-right: 0.5px solid var(--border);
+      background: #fff;
+    }
+    .scenario-card:last-child { border-right: none; }
+    .scenario-card.is-featured { background: var(--parchment); }
+    .scenario-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .scenario-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+    .scenario-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: 4px;
+    }
+    .scenario-price-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .scenario-roe {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .scenario-roe-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .scenario-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Rare / USP grid ── */
+    .rare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .rare-item {
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 24px;
+      background: #fff;
+    }
+    .rare-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .rare-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+    .rare-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Reasons grid ── */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .reason-item {
+      background: #fff;
+      padding: 32px 28px;
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .reason-item:nth-child(3n) { border-right: none; }
+    .reason-item:nth-last-child(-n+3) { border-bottom: none; }
+    .reason-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .reason-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+    .reason-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .reason-callout {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .reason-quote {
+      background: var(--parchment);
+      border-right: none;
+      display: flex;
+      align-items: center;
+    }
+    .reason-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-style: italic;
+      color: var(--fg);
+      line-height: 1.55;
+      margin: 0;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .timeline-step {
+      padding: 28px 24px;
+      border-right: 0.5px solid var(--border);
+      background: #fff;
+    }
+    .timeline-step:last-child { border-right: none; }
+    .timeline-step.is-alt { background: var(--parchment); }
+    .timeline-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: 10px;
+    }
+    .timeline-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .timeline-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    /* ── Property specs (full-width 2-col) ── */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .specs-col {
+      padding: 0;
+    }
+    .specs-col .data-table {
+      border: none;
+      border-radius: 0;
+    }
+    .specs-col:first-child .data-table { border-right: 0.5px solid var(--border); }
+
+    /* ── Image + info pair (horizontal) ── */
+    .img-info-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .img-info-pair-image {
+      overflow: hidden;
+    }
+    .img-info-pair-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-info-pair-text {
+      padding: 48px 40px;
+      background: var(--parchment);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .photo-mosaic { grid-template-columns: 1fr; grid-template-rows: 280px 200px 200px; }
+      .photo-mosaic-main { grid-row: 1; }
+      .scenario-cards { grid-template-columns: 1fr; }
+      .scenario-card { border-right: none; border-bottom: 0.5px solid var(--border); }
+      .scenario-card:last-child { border-bottom: none; }
+      .rare-grid { grid-template-columns: 1fr 1fr; }
+      .reasons-grid { grid-template-columns: 1fr 1fr; }
+      .reason-item:nth-child(3n) { border-right: 0.5px solid var(--border); }
+      .reason-item:nth-child(2n) { border-right: none; }
+      .timeline { grid-template-columns: 1fr 1fr; }
+      .timeline-step:nth-child(2n) { border-right: none; }
+      .timeline-step { border-bottom: 0.5px solid var(--border); }
+      .specs-grid { grid-template-columns: 1fr; }
+      .specs-col:first-child .data-table { border-right: none; border-bottom: 0.5px solid var(--border); }
+      .img-info-pair { grid-template-columns: 1fr; }
+      .img-info-pair-image { height: 300px; }
+    }
+    @media (max-width: 600px) {
+      .rare-grid { grid-template-columns: 1fr; }
+      .reasons-grid { grid-template-columns: 1fr; }
+      .reason-item { border-right: none; }
+      .timeline { grid-template-columns: 1fr; }
+      .img-strip { height: 260px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,7 +352,7 @@
   </div>
 </header>
 
-<!-- ── Breadcrumb ───────────────────────────────────────────── -->
+<!-- ── Breadcrumb ── -->
 <div class="breadcrumb">
   <div class="wrap">
     <a href="investments.html">
@@ -41,102 +362,68 @@
   </div>
 </div>
 
-<!-- ── Triptych hero image ──────────────────────────────────── -->
-<div class="triptych">
-  <img src="images/cavo-triptych.jpg" alt="CavoBlu Preveza — Ionian Coast boutique hotel" loading="eager">
+<!-- ── Photo mosaic ── -->
+<div class="photo-mosaic">
+  <div class="photo-mosaic-main">
+    <img src="images/cavo-render-1.jpg" alt="CavoBlu Preveza — seafront façade" loading="eager">
+  </div>
+  <div class="photo-mosaic-side">
+    <img src="images/cavo-render-5.jpg" alt="CavoBlu — suite view towards the lighthouse" loading="eager">
+  </div>
+  <div class="photo-mosaic-side">
+    <img src="images/cavo-render-3.jpg" alt="CavoBlu — panoramic sea view from suite" loading="eager">
+  </div>
 </div>
 
-<!-- ── Metrics bar ──────────────────────────────────────────── -->
+<!-- ── Metrics bar ── -->
 <div class="metrics-bar">
   <div class="metric">
     <p class="metric-label">Entry price (from)</p>
     <p class="metric-value">€2,800,000</p>
   </div>
   <div class="metric">
-    <p class="metric-label">Suites (Phase 1)</p>
+    <p class="metric-label">Luxury suites</p>
     <p class="metric-value">20</p>
+  </div>
+  <div class="metric">
+    <p class="metric-label">Construction complete</p>
+    <p class="metric-value">70%</p>
   </div>
   <div class="metric">
     <p class="metric-label">Best ROE</p>
     <p class="metric-value">23.0%</p>
   </div>
-  <div class="metric">
-    <p class="metric-label">Location</p>
-    <p class="metric-value">Preveza, Epirus</p>
   </div>
-</div>
 
-<!-- ── Overview ─────────────────────────────────────────────── -->
+<!-- ── Overview ── -->
 <section class="section border-bottom">
   <div class="wrap">
-    <div class="content-pair" style="align-items:flex-start">
-      <div class="content-text">
-        <p class="label label-gold">Overview</p>
-        <h1 class="h2">CavoBlu Preveza — Seafront Boutique Hotel</h1>
-        <p>A private cape on the Ionian coast with 20 luxury suites already 70% built. The concrete structure, foundations, and core MEP systems are in place — structural risk is behind you. What remains is fit-out and finishing, with a clear path to operational launch within 12–18 months of acquisition.</p>
-        <p>Every suite faces an unobstructed 180° horizon over the Ionian Sea. Minimalist architecture designed to disappear into the landscape, with private pools, waterfall features, and sunset terraces from each unit. This view cannot be replicated on the same coastline — cape land of this quality and proximity to Aktion Airport is not available elsewhere in the region.</p>
-        <p>An approved government cash-back subsidy of €500,000 is embedded in the project, reducing the effective equity requirement from day one. Three investment structures are available, with a best ROE of 23.0% under the strategic Scenario C, which scales capacity to 32 keys within the existing plot footprint.</p>
-      </div>
-      <div class="content-image">
-        <img src="images/cavo-1.jpg" alt="CavoBlu Preveza — Ionian sea views" loading="lazy">
-      </div>
+    <p class="label label-gold">The property</p>
+    <h1 class="h2" style="max-width:28ch; margin-bottom:24px">A seafront cape on the Ionian coast</h1>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:40px">
+      <p style="color:var(--muted); line-height:1.75; margin:0">The site occupies a natural cape in Mytikas, Preveza — 15 minutes from Aktion International Airport. The elevation delivers unobstructed 180° sunset views over the Ionian Sea. Construction is 70% complete: concrete structure, core MEP systems, and building envelope are installed. Permits are approved.</p>
+      <p style="color:var(--muted); line-height:1.75; margin:0">The decisions that carry the most risk in Greek development are behind this project. An approved government cash-back subsidy of €500,000 is embedded in the project, reducing the effective equity requirement from day one. Three investment structures are available, with a best ROE of 23.0% under Scenario C, which scales capacity to 32 keys within the existing plot footprint.</p>
     </div>
-  </div>
-</section>
-
-<!-- ── USP grid ─────────────────────────────────────────────── -->
-<section class="section border-bottom">
-  <div class="wrap">
-    <div class="section-heading">
-      <p class="label">What makes this asset</p>
-      <h2>Four structural advantages</h2>
-    </div>
-    <div class="usp-grid">
-      <div class="usp-item">
-        <p class="usp-number">01</p>
-        <h3 class="usp-title">70% built — structural risk is behind you</h3>
-        <p class="usp-body">Concrete structures, foundations, and core MEP systems are complete. Permits are in place. You enter at the end of construction risk, not the beginning — which is where the margin is captured without the exposure.</p>
-      </div>
-      <div class="usp-item">
-        <p class="usp-number">02</p>
-        <h3 class="usp-title">€500K state subsidy, approved</h3>
-        <p class="usp-body">An approved Greek government cash-back of €500,000 is embedded in the project. This is not a pending application — it is confirmed and reduces your effective equity requirement from the first day of acquisition.</p>
-      </div>
-      <div class="usp-item">
-        <p class="usp-number">03</p>
-        <h3 class="usp-title">~€1.2M developer's margin on day one</h3>
-        <p class="usp-body">Finished market value exceeds total construction cost by approximately €1.2M. You capture this margin immediately upon completion without waiting for stabilised operations — instant equity, no lag.</p>
-      </div>
-      <div class="usp-item">
-        <p class="usp-number">04</p>
-        <h3 class="usp-title">€15M projected exit after 5 years</h3>
-        <p class="usp-body">At stabilised operations under Scenario C with 32 keys, the asset's projected exit value reaches €15M based on conservative Ionian Coast cap rates. The 5-year horizon and the scale-up path make this a complete investment cycle, not just a yield play.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Investment scenarios ──────────────────────────────────── -->
-<section class="section border-bottom">
-  <div class="wrap">
-    <div class="content-pair" style="align-items:flex-start">
-      <div>
-        <p class="label" style="margin-bottom:16px">Three entry structures</p>
-        <h2 style="font-size:clamp(22px,2.5vw,36px); margin-bottom:20px">As-is, turnkey, or strategic</h2>
-        <p style="color:var(--muted); line-height:1.7; max-width:48ch; margin-bottom:0">Three distinct entry points with different capital requirements, risk profiles, and return targets. All scenarios include the €500,000 approved state subsidy. Scenario C scales capacity to 32 keys within the existing plot — +57% revenue against +20% OPEX.</p>
-      </div>
-      <div class="table-wrap">
+    <div class="specs-grid">
+      <div class="specs-col">
         <table class="data-table">
-          <thead>
-            <tr><th>Parameter</th><th>A — As-Is</th><th>B — Turnkey</th><th>C — Strategic</th></tr>
-          </thead>
           <tbody>
-            <tr><td>Entry price</td><td>€2,800,000</td><td>€5,700,000</td><td>€3,100,000</td></tr>
-            <tr><td>Total project budget</td><td>€4,900,000</td><td>€5,700,000</td><td>€8,500,000</td></tr>
-            <tr><td>Equity investment</td><td>€2,900,000</td><td>€3,700,000</td><td>€6,500,000</td></tr>
-            <tr><td>Keys</td><td>20</td><td>20</td><td>32</td></tr>
-            <tr><td>Projected EBITDA</td><td>~€590,000</td><td>~€590,000</td><td>~€1,050,000</td></tr>
-            <tr><td>Return on equity</td><td><strong>20.3%</strong></td><td><strong>15.9%</strong></td><td><strong>23.0%</strong></td></tr>
+            <tr><td>Asset type</td><td>4-star boutique hotel</td></tr>
+            <tr><td>Plot area</td><td>1,125 m²</td></tr>
+            <tr><td>Phase 1 capacity</td><td>20 luxury suites</td></tr>
+            <tr><td>Construction status</td><td>~70% complete</td></tr>
+            <tr><td>Permits</td><td>Approved</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="specs-col">
+        <table class="data-table">
+          <tbody>
+            <tr><td>Location</td><td>Mytikas, Preveza, Ionian Coast</td></tr>
+            <tr><td>Airport</td><td>PVK — 15 min</td></tr>
+            <tr><td>Views</td><td>180° unobstructed Ionian Sea</td></tr>
+            <tr><td>State subsidy</td><td>€500,000 approved cash-back</td></tr>
+            <tr><td>Phase 2 capacity</td><td>32 keys within existing plot</td></tr>
           </tbody>
         </table>
       </div>
@@ -144,67 +431,152 @@
   </div>
 </section>
 
-<!-- ── Scale-up argument ─────────────────────────────────────── -->
-<section class="section border-bottom">
-  <div class="wrap">
-    <div class="content-pair" style="align-items:flex-start">
-      <div>
-        <p class="label label-gold" style="margin-bottom:14px">The scale-up argument</p>
-        <h2 style="font-size:clamp(22px,2.5vw,36px); margin-bottom:28px">From 20 to 32 keys within the existing footprint</h2>
-        <div class="feature-list">
-          <div>
-            <p class="feature-item-title">Revenue efficiency</p>
-            <p class="feature-item-body">Adding 12 keys to Phase 1's 20 increases total revenue by 57%. The plot accommodates this without footprint expansion — the infrastructure is already sized for the full build-out.</p>
-          </div>
-          <div>
-            <p class="feature-item-title">OPEX leverage</p>
-            <p class="feature-item-body">OPEX grows by only 20% when scaling from 20 to 32 keys. Shared management, a single F&B operation, and fixed infrastructure costs spread across more units — the economics improve non-linearly with scale.</p>
-          </div>
-          <div>
-            <p class="feature-item-title">Exit positioning</p>
-            <p class="feature-item-body">A 32-key stabilised hotel at €1,050,000 annual EBITDA on the Ionian coast commands a significantly higher exit multiple than a 20-key asset. Scenario C is designed for investors whose primary orientation is the 5-year exit, not current yield.</p>
-          </div>
-        </div>
-      </div>
-      <div class="content-image">
-        <img src="images/cavo-2.jpg" alt="CavoBlu Preveza — cape and sea view" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ── Full-bleed image: suites facade ── -->
+<div class="img-strip">
+  <img src="images/cavo-render-4.jpg" alt="CavoBlu Preveza — suites with terraces and sun loungers">
+</div>
 
-<!-- ── Location ──────────────────────────────────────────────── -->
+<!-- ── What makes it rare ── -->
 <section class="section border-bottom">
   <div class="wrap">
     <div class="section-heading">
-      <p class="label">Location</p>
-      <h2>Preveza — a destination the market hasn't priced yet</h2>
-      <p>Ionian Coast, 15 minutes from Aktion International Airport. Direct seafront cape land at this quality level is structurally scarce on this coastline.</p>
+      <p class="label">What makes it rare</p>
+      <h2>Three things that cannot be replicated</h2>
     </div>
-    <div class="table-wrap" style="max-width:560px">
-      <table class="data-table">
-        <tbody>
-          <tr><td>Location</td><td>Mytikas, Preveza, Ionian Coast</td></tr>
-          <tr><td>Airport</td><td>15 min — Aktion International (PVK)</td></tr>
-          <tr><td>Road access</td><td>New highway connecting Preveza to Ioannina and Patras</td></tr>
-          <tr><td>Plot area</td><td>1,125 m²</td></tr>
-          <tr><td>Views</td><td>180° unobstructed Ionian Sea · private cape</td></tr>
-          <tr><td>Construction status</td><td>~70% complete</td></tr>
-          <tr><td>State subsidy</td><td>€500,000 approved cash-back</td></tr>
-          <tr><td>Phase 1 capacity</td><td>20 luxury suites with private pools</td></tr>
-          <tr><td>Phase 2 capacity</td><td>32 keys (within existing plot)</td></tr>
-          <tr><td>Projected exit value (5yr)</td><td>~€15,000,000 (Scenario C)</td></tr>
-        </tbody>
-      </table>
+    <div class="rare-grid">
+      <div class="rare-item">
+        <p class="rare-num">01</p>
+        <h3 class="rare-title">Natural cape elevation</h3>
+        <p class="rare-body">Unobstructed 180° sunset views over the Ionian Sea. The cape creates natural privacy and wind shelter — features hospitality architects typically spend significant capital replicating on flat sites.</p>
+      </div>
+      <div class="rare-item">
+        <p class="rare-num">02</p>
+        <h3 class="rare-title">Eco-luxury architecture</h3>
+        <p class="rare-body">Minimalist design. Each suite has a private pool or waterfall feature — the category commanding the highest ADR on the Ionian coast. The design is approved and fixed.</p>
+      </div>
+      <div class="rare-item">
+        <p class="rare-num">03</p>
+        <h3 class="rare-title">Built-in scalability</h3>
+        <p class="rare-body">Phase 2 expands to 32 keys: revenue grows 57%, OPEX rises only 20%. Land and permits already support the expansion. No rezoning, no new planning applications.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Contact form ──────────────────────────────────────────── -->
+<!-- ── Investment scenarios ── -->
+<section class="section border-bottom">
+  <div class="wrap">
+    <p class="label" style="margin-bottom:16px">Investment scenarios</p>
+    <h2 style="font-size:clamp(22px,2.5vw,34px); margin-bottom:12px">Three ways to enter the same asset</h2>
+    <p style="color:var(--muted); font-size:15px; line-height:1.7; margin-bottom:32px; max-width:64ch">Three distinct entry points with different capital requirements, risk profiles, and return targets. All scenarios include the €500,000 approved state subsidy. Scenario C scales to 32 keys — +57% revenue against +20% OPEX.</p>
+    <div class="table-wrap">
+      <table class="data-table" style="width:100%">
+        <thead>
+          <tr><th>Parameter</th><th>A — As-is</th><th>B — Turnkey</th><th>C — Strategic</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Entry price</td><td>€2,800,000</td><td>€5,700,000</td><td>€3,100,000</td></tr>
+          <tr><td>Total project budget</td><td>€4,900,000</td><td>€5,700,000</td><td>€8,500,000</td></tr>
+          <tr><td>Equity investment</td><td>€2,900,000</td><td>€3,700,000</td><td>€6,500,000</td></tr>
+          <tr><td>Keys</td><td>20</td><td>20</td><td>32</td></tr>
+          <tr><td>Projected EBITDA</td><td>~€590,000</td><td>~€590,000</td><td>~€1,050,000</td></tr>
+          <tr><td>Return on equity</td><td><strong>20.3%</strong></td><td><strong>15.9%</strong></td><td><strong style="color:var(--gold)">23.0%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:12px">EBITDA projections based on conservative seasonal occupancy. Full financial model available on request.</p>
+  </div>
+</section>
+
+<!-- ── Full-bleed image: courtyard waterfall ── -->
+<div class="img-strip">
+  <img src="images/cavo-render-2.jpg" alt="CavoBlu — courtyard with waterfall feature and suites">
+</div>
+
+<!-- ── Five reasons ── -->
+<section class="section border-bottom" style="background:var(--parchment)">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="label">Five reasons to act now</p>
+      <h2>The risk has already been absorbed</h2>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-item">
+        <p class="reason-number">01</p>
+        <h3 class="reason-title">Low construction risk</h3>
+        <p class="reason-body">70% structurally complete. Permits are approved. The decisions that carry the most risk in Greek development are behind this project.</p>
+      </div>
+      <div class="reason-item">
+        <p class="reason-number">02</p>
+        <h3 class="reason-title">Government subsidy secured</h3>
+        <p class="reason-body">An approved state cash-back of €500,000 is attached. It reduces your effective capital requirement from day one, regardless of which scenario you enter.</p>
+        <span class="reason-callout">€500,000 cash-back</span>
+      </div>
+      <div class="reason-item">
+        <p class="reason-number">03</p>
+        <h3 class="reason-title">Developer's margin captured</h3>
+        <p class="reason-body">The finished asset is worth ~€1.2M more than the total cost to complete it. That spread is yours immediately on opening — before a single guest arrives.</p>
+        <span class="reason-callout">~€1.2M immediate uplift</span>
+      </div>
+      <div class="reason-item">
+        <p class="reason-number">04</p>
+        <h3 class="reason-title">Seafront scarcity</h3>
+        <p class="reason-body">Direct seafront land with a private cape on the Ionian coast is finite. There is no rezoning that creates more of it. Exit demand is structurally supported.</p>
+      </div>
+      <div class="reason-item">
+        <p class="reason-number">05</p>
+        <h3 class="reason-title">Preveza is emerging</h3>
+        <p class="reason-body">New highway infrastructure and growing international flights to PVK are bringing high-end demand to a market not yet priced for it.</p>
+      </div>
+      <div class="reason-item reason-quote">
+        <blockquote>"Waterfront land with a private cape on the Ionian coast is a finite resource. There is no rezoning that creates more of it."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Five-year timeline ── -->
+<section class="section border-bottom">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="label">The five-year horizon</p>
+      <h2>From construction site to operating hotel</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <p class="timeline-date">Now · 2026</p>
+        <h3 class="timeline-title">70% construction complete</h3>
+        <p class="timeline-body">Structure, core systems, envelope in place. Permits approved. State subsidy: €500,000.</p>
+        <p class="timeline-value">€3,100,000 entry</p>
+      </div>
+      <div class="timeline-step is-alt">
+        <p class="timeline-date">2027</p>
+        <h3 class="timeline-title">Phase 1 opens — 20 suites</h3>
+        <p class="timeline-body">Hotel trades. EBITDA ~€590,000. Developer margin ~€1.2M captured on completion.</p>
+        <p class="timeline-value">~€4,300,000</p>
+      </div>
+      <div class="timeline-step">
+        <p class="timeline-date">2028 – 2029</p>
+        <h3 class="timeline-title">Phase 2 — expand to 32 keys</h3>
+        <p class="timeline-body">Revenue +57%. OPEX +20%. EBITDA reaches ~€1,050,000 at full scale.</p>
+        <p class="timeline-value">EBITDA ~€1,050,000</p>
+      </div>
+      <div class="timeline-step is-alt">
+        <p class="timeline-date">2031 – 2032</p>
+        <h3 class="timeline-title">Exit at full operation</h3>
+        <p class="timeline-body">5-year operating track record. Asset positioned for institutional or hospitality group buyer.</p>
+        <p class="timeline-value">€15,000,000</p>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:12px">Exit value calculated on a 14× EBITDA multiple, consistent with comparable Ionian boutique hotel transactions. Full assumptions available in the financial model.</p>
+  </div>
+</section>
+
+<!-- ── Contact form ── -->
 <section class="form-block" id="contact">
   <div class="wrap">
-    <p class="form-block-title">Request the full investment file</p>
-    <p class="form-block-sub">Detailed financial model for all three scenarios, construction timeline, state subsidy documentation, and operator shortlist available on request. We respond within one business day.</p>
+    <p class="form-block-title">Request the data room</p>
+    <p class="form-block-sub">The financial model, full permit documentation, and construction schedule are held in a confidential data room. We can walk you through each assumption at your pace — no commitment required to access the numbers. We respond within one business day.</p>
     <form class="form" action="https://formspree.io/f/mvzlwolo" method="POST">
       <input type="hidden" name="property" value="CavoBlu Preveza">
       <div class="form-field">
@@ -230,9 +602,9 @@
         <label class="form-label" for="b-interest">Primary interest</label>
         <select class="form-select" id="b-interest" name="interest">
           <option value="" disabled selected>Select</option>
-          <option>Golden Visa residency</option>
           <option>Investment / yield</option>
-          <option>Personal residence</option>
+          <option>Strategic acquisition</option>
+          <option>Golden Visa residency</option>
           <option>Not sure yet</option>
         </select>
       </div>
@@ -241,13 +613,13 @@
         <input class="form-input" id="b-contact" name="contact" type="text" placeholder="your preferred contact" autocomplete="email">
       </div>
       <div class="form-submit">
-        <button type="submit" class="btn btn-gold">Request investment file</button>
+        <button type="submit" class="btn btn-gold">Request the data room</button>
       </div>
     </form>
   </div>
 </section>
 
-<!-- ── Footer ───────────────────────────────────────────────── -->
+<!-- ── Footer ── -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-main">
