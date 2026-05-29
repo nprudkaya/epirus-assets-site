@@ -9,6 +9,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    .photo-hero {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      height: 520px;
+      gap: 3px;
+      background: #1C1C1A;
+    }
+    .photo-hero-panel {
+      overflow: hidden;
+    }
+    .photo-hero-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-hero-panel:first-child img {
+      object-position: center 60%;
+    }
+    .photo-hero-panel:last-child img {
+      object-position: center top;
+    }
+    @media (max-width: 700px) {
+      .photo-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px 200px;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -41,9 +72,14 @@
   </div>
 </div>
 
-<!-- ── Triptych hero ── -->
-<div class="triptych">
-  <img src="images/gastro-triptych.jpg" alt="Gastro-Eco Ecosystem — Ioannina boutique hotel" loading="eager">
+<!-- ── Photo hero ── -->
+<div class="photo-hero">
+  <div class="photo-hero-panel">
+    <img src="images/gastro-3.jpg" alt="Gastro-Eco Ecosystem — restaurant terrace at night" loading="eager">
+  </div>
+  <div class="photo-hero-panel">
+    <img src="images/gastro-1.jpg" alt="Gastro-Eco Ecosystem — building facade, Ioannina" loading="eager">
+  </div>
 </div>
 
 <!-- ── Metrics bar ── -->
@@ -73,17 +109,11 @@
 <!-- ── Overview ── -->
 <section class="section border-bottom">
   <div class="wrap">
-    <div class="content-pair" style="align-items:flex-start">
-      <div class="content-text">
-        <p class="label label-gold">The concept</p>
-        <h1 class="h2">A hotel and a restaurant under one roof</h1>
-        <p>Most boutique hotels depend on room revenue alone. This asset combines short-term accommodation with a ground-floor gastro-hub that serves both hotel guests and the local Ioannina community — two independent income streams from a single 350 m² building.</p>
-        <p>The upper floors hold 5 boutique suites with automated check-in, designed for year-round short-term rental. The ground floor operates as a gastro-hub: 141 m² of indoor restaurant space with a 105 m² outdoor terrace. Each income stream reinforces the other, while each can operate independently.</p>
-        <p>The asset is ready-to-operate as a concept. Full documentation — financial model, floor plans, legal structure, and operator shortlist — is available on request. Privately owned, off-market.</p>
-      </div>
-      <div class="content-image">
-        <img src="images/gastro-1.jpg" alt="Gastro-Eco Ecosystem — building facade, Ioannina" loading="lazy">
-      </div>
+    <p class="label label-gold">The concept</p>
+    <h1 class="h2" style="max-width:28ch; margin-bottom:24px">A hotel and a restaurant under one roof</h1>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px">
+      <p style="color:var(--muted); line-height:1.75; margin:0">Most boutique hotels depend on room revenue alone. This asset combines short-term accommodation with a ground-floor gastro-hub that serves both hotel guests and the local Ioannina community — two independent income streams from a single 350 m² building.</p>
+      <p style="color:var(--muted); line-height:1.75; margin:0">The upper floors hold 5 boutique suites with automated check-in, designed for year-round short-term rental. The ground floor operates as a gastro-hub: 141 m² indoor restaurant and a 105 m² outdoor terrace. The asset is ready-to-operate as a concept. Privately owned, off-market.</p>
     </div>
   </div>
 </section>
@@ -122,31 +152,30 @@
 <!-- ── Why Ioannina ── -->
 <section class="section border-bottom">
   <div class="wrap">
-    <div class="content-pair" style="align-items:flex-start">
-      <div class="content-text">
-        <p class="label">Why Ioannina</p>
-        <h2>Four structural advantages of this market</h2>
-        <div class="feature-list">
-          <div>
-            <p class="feature-item-title">A growing IT cluster with no premium hotels</p>
-            <p class="feature-item-body">TeamViewer, Deloitte, and PwC have established operations in Ioannina. Business demand for quality accommodation significantly outpaces supply. The city is becoming Greece's secondary technology hub — the infrastructure for premium hospitality has not kept up.</p>
-          </div>
-          <div>
-            <p class="feature-item-title">Year-round city, not a seasonal resort</p>
-            <p class="feature-item-body">University, medical centre, and administrative traffic keeps both occupancy and F&amp;B revenue stable across twelve months. There are no seasonal shutdowns. This is the structural advantage a coastal resort cannot replicate.</p>
-          </div>
-          <div>
-            <p class="feature-item-title">15–20% asset appreciation expected</p>
-            <p class="feature-item-body">Regional infrastructure expansion — new road connections and airport upgrades — is projected to drive capital growth within a 3-year horizon. Entry at this stage captures appreciation that is not yet priced into the market.</p>
-          </div>
-          <div>
-            <p class="feature-item-title">Golden Visa eligible</p>
-            <p class="feature-item-body">The asset price and structure comply with Greek Golden Visa residency requirements. EU residency pathway available at this investment level. Ioannina falls within the standard €250,000 threshold zone, unlike Athens and the major island destinations.</p>
-          </div>
-        </div>
+    <div class="section-heading">
+      <p class="label">Why Ioannina</p>
+      <h2>Four structural advantages of this market</h2>
+    </div>
+    <div class="usp-grid">
+      <div class="usp-item">
+        <p class="usp-number">01</p>
+        <h3 class="usp-title">A growing IT cluster with no premium hotels</h3>
+        <p class="usp-body">TeamViewer, Deloitte, and PwC have established operations here. Business demand for quality accommodation significantly outpaces supply. The city is becoming Greece's secondary technology hub — the infrastructure for premium hospitality has not kept up.</p>
       </div>
-      <div class="content-image">
-        <img src="images/gastro-3.jpg" alt="Gastro-Eco Ecosystem — restaurant terrace at night" loading="lazy">
+      <div class="usp-item">
+        <p class="usp-number">02</p>
+        <h3 class="usp-title">Year-round city, not a seasonal resort</h3>
+        <p class="usp-body">University, medical centre, and administrative traffic keeps both occupancy and F&amp;B revenue stable across twelve months. There are no seasonal shutdowns. This is the structural advantage a coastal resort cannot replicate.</p>
+      </div>
+      <div class="usp-item">
+        <p class="usp-number">03</p>
+        <h3 class="usp-title">15–20% asset appreciation expected</h3>
+        <p class="usp-body">Regional infrastructure expansion — new road connections and airport upgrades — is projected to drive capital growth within a 3-year horizon. Entry at this stage captures appreciation that is not yet priced into the market.</p>
+      </div>
+      <div class="usp-item">
+        <p class="usp-number">04</p>
+        <h3 class="usp-title">Golden Visa eligible</h3>
+        <p class="usp-body">The asset price and structure comply with Greek Golden Visa requirements. EU residency pathway available at this investment level. Ioannina falls within the standard €250,000 threshold zone — unlike Athens and the major island destinations.</p>
       </div>
     </div>
   </div>
