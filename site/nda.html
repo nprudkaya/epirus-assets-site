@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confidentiality Agreement — Epirus Assets</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design tokens ────────────────────────────────────────── */
+    :root {
+      --parchment:   #F4EFE6;
+      --white:       #FFFFFF;
+      --night:       #1C1C1A;
+      --gold:        #B8924A;
+      --gold-ring:   rgba(184, 146, 74, 0.12);
+      --stone:       #7A6A5A;
+      --pale-stone:  #E2DDD6;
+      --serif:       'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans:        'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--sans);
+      background: var(--parchment);
+      color: var(--night);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; }
+    button { cursor: pointer; font-family: inherit; background: none; border: none; }
+
+    /* Visually hidden but accessible */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ── Page layout ──────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 64px;
+      padding-bottom: 80px;
+    }
+    @media (max-width: 740px) {
+      .page-wrap { padding: 0 20px 80px; }
+    }
+
+    /* ── Header ───────────────────────────────────────────────── */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0 56px;
+    }
+    .logo-link { display: flex; align-items: center; }
+    .logo-img  { max-height: 56px; width: auto; }
+
+    /* ── Language switcher ────────────────────────────────────── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+    }
+    .lang-btn {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: var(--stone);
+      padding: 4px 0;
+      transition: color 0.15s;
+    }
+    .lang-btn:hover { color: var(--night); }
+    .lang-btn.active {
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .lang-sep {
+      font-size: 11px;
+      color: var(--pale-stone);
+      padding: 0 6px;
+      user-select: none;
+    }
+
+    /* ── Invalid ref state ────────────────────────────────────── */
+    .invalid-state {
+      display: none;
+      padding: 64px 0 32px;
+      text-align: center;
+    }
+    .invalid-msg {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--stone);
+      margin-bottom: 16px;
+    }
+    .invalid-contact {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--stone);
+    }
+    .invalid-contact a {
+      color: var(--gold);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .invalid-contact a:hover { border-color: var(--gold); }
+
+    /* ── NDA section ──────────────────────────────────────────── */
+    .nda-section { display: none; }
+
+    .kicker {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .nda-heading {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--night);
+      margin-bottom: 28px;
+    }
+
+    /* Scrollable NDA text box */
+    .nda-text-box {
+      background: var(--white);
+      border: 0.5px solid var(--pale-stone);
+      border-radius: 4px;
+      padding: 24px;
+      height: 220px;
+      overflow-y: auto;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--stone);
+      margin-bottom: 32px;
+      scroll-behavior: smooth;
+    }
+    .nda-text-box p + p { margin-top: 1em; }
+
+    /* ── Form ─────────────────────────────────────────────────── */
+    .form-group { margin-bottom: 20px; }
+
+    .form-label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      display: block;
+      width: 100%;
+      background: var(--white);
+      border: 0.5px solid var(--pale-stone);
+      border-radius: 4px;
+      padding: 11px 14px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--night);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder { color: var(--stone); }
+    .form-input:focus {
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-ring);
+    }
+
+    /* ── Custom checkbox ──────────────────────────────────────── */
+    .checkbox-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    /* Hide native checkbox but keep it in tab order */
+    .checkbox-wrap input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 16px;
+      height: 16px;
+    }
+
+    .checkbox-box {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border: 1px solid var(--pale-stone);
+      border-radius: 3px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition: background 0.15s, border-color 0.15s;
+      pointer-events: none;
+    }
+    .checkbox-box svg { display: none; }
+
+    .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box svg {
+      display: block;
+    }
+    /* Focus ring on the visual checkbox */
+    .checkbox-wrap input[type="checkbox"]:focus-visible + .checkbox-box {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .checkbox-text {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--night);
+      line-height: 1.5;
+      user-select: none;
+    }
+
+    /* ── Section separator ────────────────────────────────────── */
+    .section-sep {
+      border: none;
+      border-top: 1px solid var(--pale-stone);
+      margin: 24px 0;
+    }
+
+    /* ── GDPR body text ───────────────────────────────────────── */
+    .gdpr-body {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--stone);
+      line-height: 1.6;
+      margin-top: 10px;
+      padding-left: 28px;
+    }
+
+    /* ── Submit button ────────────────────────────────────────── */
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 14px 20px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-top: 32px;
+      text-align: center;
+    }
+    .btn-submit:not(:disabled):hover {
+      background: var(--gold);
+      color: var(--parchment);
+    }
+    .btn-submit:disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    /* ── Success section ──────────────────────────────────────── */
+    .success-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .success-section.visible { display: block; }
+    .success-section.faded-in { opacity: 1; }
+
+    .success-greeting {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--night);
+      margin-bottom: 10px;
+    }
+    .success-title-line {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--stone);
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .success-subtitle {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--stone);
+      margin-bottom: 40px;
+    }
+
+    /* ── Property cards ───────────────────────────────────────── */
+    .property-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .property-card {
+      background: var(--white);
+      border: 0.5px solid var(--pale-stone);
+      border-radius: 6px;
+      padding: 20px 24px;
+      transition: border-color 0.15s;
+    }
+    .property-card:hover { border-color: var(--gold); }
+    .property-card-name {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--night);
+      margin-bottom: 6px;
+    }
+    .property-card-desc {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--stone);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .property-card-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .property-card-link:hover { opacity: 0.75; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header class="page-header">
+    <a href="/" class="logo-link" aria-label="Epirus Assets — home">
+      <!--
+        Logo note: the task spec references /logodark.png (dark logo for light backgrounds).
+        If that file doesn't exist yet, use images/logo-light.png — it also works on parchment.
+      -->
+      <img src="images/logo-light.png" alt="Epirus Assets" class="logo-img">
+    </a>
+    <nav class="lang-switcher" aria-label="Language">
+      <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-btn" data-lang="el" aria-pressed="false">EL</button>
+    </nav>
+  </header>
+
+  <!-- ── Invalid ref state ───────────────────────────────────── -->
+  <div id="invalidState" class="invalid-state" role="alert">
+    <p id="invalidMsg" class="invalid-msg"></p>
+    <p class="invalid-contact">
+      <a href="mailto:info@epirusassets.com">info@epirusassets.com</a>
+      &nbsp;·&nbsp; +30 698 310 9914
+    </p>
+  </div>
+
+  <!-- ── NDA + Form ──────────────────────────────────────────── -->
+  <main id="ndaSection" class="nda-section" aria-label="Confidentiality Agreement">
+    <p class="kicker">Confidential</p>
+    <h1 class="nda-heading" data-i18n="nda_title">Confidentiality Agreement</h1>
+
+    <!-- Scrollable NDA text -->
+    <div id="ndaTextBox"
+         class="nda-text-box"
+         tabindex="0"
+         role="region"
+         aria-label="Agreement text — please read before signing"></div>
+
+    <form id="ndaForm" novalidate>
+
+      <!-- Section A — Identity -->
+      <div class="form-group">
+        <label class="form-label" for="fieldName" data-i18n="name_label">Full Name</label>
+        <input class="form-input"
+               type="text"
+               id="fieldName"
+               name="name"
+               required
+               autocomplete="name"
+               data-i18n-placeholder="name_placeholder"
+               placeholder="Your full name">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="fieldEmail" data-i18n="email_label">Email Address</label>
+        <input class="form-input"
+               type="email"
+               id="fieldEmail"
+               name="email"
+               required
+               autocomplete="email"
+               data-i18n-placeholder="email_placeholder"
+               placeholder="your@email.com">
+      </div>
+
+      <!-- NDA agreement checkbox -->
+      <label class="checkbox-wrap" for="checkNda">
+        <input type="checkbox" id="checkNda" required>
+        <span class="checkbox-box" aria-hidden="true">
+          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+            <path d="M1 4L3.8 7L9 1" stroke="white" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="checkbox-text" data-i18n="nda_checkbox">I have read and agree to the Confidentiality Agreement above</span>
+      </label>
+
+      <!-- ── Separator ────────────────────────────────────────── -->
+      <hr class="section-sep" role="separator">
+
+      <!-- Section B — GDPR -->
+      <label class="checkbox-wrap" for="checkGdpr">
+        <input type="checkbox" id="checkGdpr" required>
+        <span class="checkbox-box" aria-hidden="true">
+          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+            <path d="M1 4L3.8 7L9 1" stroke="white" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="checkbox-text" data-i18n="gdpr_checkbox">I consent to the processing of my personal data</span>
+      </label>
+
+      <p class="gdpr-body" data-i18n="gdpr_body"></p>
+
+      <button type="submit" id="submitBtn" class="btn-submit" disabled
+              data-i18n="submit_btn">Confirm &amp; View Properties</button>
+
+    </form>
+  </main>
+
+  <!-- ── Success section ─────────────────────────────────────── -->
+  <section id="successSection" class="success-section" aria-live="polite">
+    <h2 id="successGreeting" class="success-greeting"></h2>
+    <p class="success-title-line" data-i18n="success_title">You now have access to the following properties.</p>
+    <p class="success-subtitle" data-i18n="success_subtitle">Thank you for confirming your agreement.</p>
+    <div id="propertyCards" class="property-cards"></div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+
+<script>
+// ===================================================================
+// CONFIGURATION — EDIT HERE
+// ===================================================================
+
+// Step 4: paste your Formspree endpoint here after creating the form
+// at https://formspree.io (see setup steps in restructure-guide.md)
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xgobayrp";
+
+// NDA ref → property mapping
+// Each key is the ?ref= value you include in the link you send to a client.
+// To add a new access group:
+//   "your-ref-key": {
+//     label: "Human-readable label (appears in Formspree log)",
+//     properties: [
+//       { name: "Property Name", description: "Short description", url: "/private/file.html" }
+//     ]
+//   }
+const NDA_REFS = {
+  "sivota-2026": {
+    label: "Sivota Coastal Portfolio",
+    properties: [
+      {
+        name: "Villa Sivota Alpha",
+        description: "Waterfront plot, 4,200m², fully permitted. Sivota bay views.",
+        url: "/private/villa-sivota-alpha.html"
+      },
+      {
+        name: "Stone House Mourtos",
+        description: "Traditional renovation, 180m², 3 bed. Off-market.",
+        url: "/private/stone-house-mourtos.html"
+      }
+    ]
+  },
+  "ioannina-invest": {
+    label: "Ioannina Investment Properties",
+    properties: [
+      {
+        name: "Boutique Hotel — City Centre",
+        description: "21-room hotel, fully permitted. €1.25M. ROI up to 19%.",
+        url: "/private/hotel-ioannina-centre.html"
+      }
+    ]
+  }
+};
+
+// All UI strings in EN and EL.
+// When the NDA PDF arrives, paste the English text into en.nda_body
+// and the Greek text into el.nda_body. Preserve paragraph breaks as \n\n.
+// Do not summarise or rewrite legal text.
+const UI_STRINGS = {
+  en: {
+    nda_title:       "Confidentiality Agreement",
+    nda_body:        `TERMS OF NON-DISCLOSURE AND NON-CIRCUMVENTION
+
+1. ACCEPTANCE OF TERMS
+By accessing, requesting, or receiving any off-market property data, financial models, or investment project details (the "Confidential Information") from Epirus Assets (Individual Enterprise Olga Kononenko, Tax Registration Number (AFM): 158710998, Greece), you (the "User", "Partner", or "Investor") explicitly agree to be legally bound by these Terms of Non-Disclosure and Non-Circumvention (the "Terms").
+
+2. PURPOSE AND PERMITTED USE
+The Disclosing Party possesses exclusive, confidential, and off-market information regarding prime real estate investment, development projects, hospitality assets, conversion projects, and Golden Visa opportunities in Greece. The User is granted access to this Confidential Information solely for:
+● Evaluation of a potential commercial transaction or partnership;
+● Use within their own professional business activities or for their personal/own investment needs.
+Any use of the information outside these permitted purposes is strictly prohibited.
+
+3. DEFINITION OF CONFIDENTIAL INFORMATION
+"Confidential Information" refers to any proprietary data provided by Epirus Assets, whether via email, messaging applications, website portals, or oral communication, including but not limited to:
+● Financial models, ROI projections, exit scenarios, budgets, and business plans;
+● Exact locations, legal titles, architectural plans, layouts, and owner identities of off-market properties;
+● Pricing terms, governmental subsidies data, and any operational details related to the projects.
+
+4. OBLIGATIONS OF NON-DISCLOSURE
+The User agrees to:
+4.1. Maintain strict confidentiality and not disclose, sell, or distribute the Confidential Information to any third party without the prior written consent of Epirus Assets.
+4.2. Restrict access to the Confidential Information only to those internal employees, partners, or legal advisors who directly need it for the permitted purpose and who are bound by similar confidentiality obligations.
+4.3. Not publish, advertise, or share any project data, photos, or financial metrics on public portals, social media, or any open sources.
+
+5. NON-CIRCUMVENTION
+5.1. The User explicitly agrees not to bypass, circumvent, or avoid Epirus Assets, either directly or indirectly, to initiate contact, negotiate, or conclude any transaction with the owners, developers, or representatives of the properties disclosed by Epirus Assets without prior written consent.
+5.2. If any owner or third party related to the disclosed project attempts to contact the User directly, the User undertakes to notify Epirus Assets within forty-eight (48) hours.
+5.3. This Non-Circumvention protection shall remain in full force and effect for a period of twenty-four (24) months from the date the specific asset information was provided to the User.
+
+6. TERM OF CONFIDENTIALITY
+The obligations regarding non-disclosure shall remain binding upon the User for a period of three (3) years from the date the Confidential Information was accessed or received.
+
+7. GOVERNING LAW AND JURISDICTION
+These Terms shall be governed by and construed in accordance with the laws of the Hellenic Republic. Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the competent Courts of Ioannina, Greece.`,
+    nda_checkbox:    "I have read and agree to the Confidentiality Agreement above",
+    gdpr_checkbox:   "I consent to the processing of my personal data",
+    gdpr_body:       "Epirus Assets collects your name and email address for the sole purpose of recording your agreement to the confidentiality terms above. Your data will not be shared with third parties, used for marketing, or retained beyond the duration of our business relationship. You may request deletion of your data at any time by contacting info@epirusassets.com. This consent is given in accordance with Regulation (EU) 2016/679 (GDPR).",
+    name_label:      "Full Name",
+    name_placeholder:"Your full name",
+    email_label:     "Email Address",
+    email_placeholder:"your@email.com",
+    submit_btn:      "Confirm & View Properties",
+    success_greeting:"Thank you, {name}.",
+    success_title:   "You now have access to the following properties.",
+    success_subtitle:"Thank you for confirming your agreement.",
+    view_listing:    "View listing →",
+    invalid_ref:     "This link appears to be incomplete. Please contact us to receive your personalised access link."
+  },
+  el: {
+    nda_title:       "Συμφωνία Εμπιστευτικότητας",
+    nda_body:        `ΟΡΟΙ ΕΜΠΙΣΤΕΥΤΙΚΟΤΗΤΑΣ ΚΑΙ ΜΗ ΚΑΤΑΣΤΡΑΤΗΓΗΣΗΣ
+
+1. ΑΠΟΔΟΧΗ ΤΩΝ ΟΡΩΝ
+Με την πρόσβαση, το αίτημα ή τη λήψη οποιωνδήποτε δεδομένων ακινήτων εκτός αγοράς (off-market), χρηματοοικονομικών μοντέλων ή λεπτομερειών επενδυτικών έργων (οι «Εμπιστευτικές Πληροφορίες») από την Epirus Assets (Ατομική Επιχείρηση Όλγα Κονονένκο, ΑΦΜ: 158710998, Ελλάδα), εσείς (ο «Χρήστης», «Συνεργάτης» ή «Επενδυτής») συμφωνείτε ρητά να δεσμεύεστε νομικά από τους παρόντες Όρους Εμπιστευτικότητας και Μη Καταστρατήγησης (οι «Όροι»).
+
+2. ΣΚΟΠΟΣ ΚΑΙ ΕΠΙΤΡΕΠΟΜΕΝΗ ΧΡΗΣΗ
+Το Εκποιούν Μέρος κατέχει αποκλειστικές, εμπιστευτικές και εκτός αγοράς (off-market) πληροφορίες σχετικά με προνομιακές επενδύσεις σε ακίνητα, αναπτυξιακά έργα, ξενοδοχειακά περιουσιακά στοιχεία, έργα μετατροπής (conversion projects) και ευκαιρίες Golden Visa στην Ελλάδα. Στον Χρήστη παρέχεται πρόσβαση σε αυτές τις Εμπιστευτικές Πληροφορίες αποκλειστικά για:
+Την αξιολόγηση μιας πιθανής εμπορικής συναλλαγής ή συνεργασίας,
+Τη χρήση στο πλαίσιο των δικών του επαγγελματικών επιχειρηματικών δραστηριοτήτων ή για τις προσωπικές/δικές του επενδυτικές ανάγκες.
+Οποιαδήποτε χρήση των πληροφοριών εκτός αυτών των επιτρεπόμενων σκοπών απαγορεύεται αυστηρά.
+
+3. ΟΡΙΣΜΟΣ ΤΩΝ ΕΜΠΙΣΤΕΥΤΙΚΩΝ ΠΛΗΡΟΦΟΡΙΩΝ
+Ως «Εμπιστευτικές Πληροφορίες» νοούνται οποιαδήποτε ιδιοκτησιακά δεδομένα παρέχονται από την Epirus Assets, είτε μέσω email, εφαρμογών μηνυμάτων, πυλών ιστοτόπων είτε μέσω προφορικής επικοινωνίας, συμπεριλαμβανομένων ενδεικτικά αλλά όχι περιοριστικά των εξής:
+Χρηματοοικονομικά μοντέλα, προβλέψεις απόδοσης επένδυσης (ROI), σενάρια εξόδου, προϋπολογισμοί και επιχειρηματικά σχέδια,
+Ακριβείς τοποθεσίες, τίτλοι ιδιοκτησίας, architectural plans, κατόψεις και στοιχεία ταυτότητας των ιδιοκτητών ακινήτων εκτός αγοράς (off-market),
+Όροι τιμολόγησης, δεδομένα κρατικών επιδοτήσεων και οποιεσδήποτε λειτουργικές λεπτομέρειες σχετίζονται με τα έργα.
+
+4. ΥΠΟΧΡΕΩΣΕΙΣ ΕΜΠΙΣΤΕΥΤΙΚΟΤΗΤΑΣ
+Ο Χρήστης συμφωνεί:
+4.1. Να τηρεί αυστηρή εμπιστευτικότητα και να μην αποκαλύπτει, πουλάει ή διανέμει τις Εμπιστευτικές Πληροφορίες σε οποιοδήποτε τρίτο μέρος χωρίς την προηγούμενη έγγραφη συγκατάθεση της Epirus Assets.
+4.2. Να περιορίζει την πρόσβαση στις Εμπιστευτικές Πληροφορίες μόνο σε εκείνους τους εσωτερικούς υπαλλήλους, συνεργάτες ή νομικούς συμβούλους που τις χρειάζονται άμεσα για τον επιτρεπόμενο σκοπό και οι οποίοι δεσμεύονται από παρόμοιες υποχρεώσεις εμπιστευτικότητας.
+4.3. Να μην δημοσιεύει, διαφημίζει ή κοινοποιεί δεδομένα του έργου, φωτογραφίες ή χρηματοοικονομικούς δείκτες σε δημόσιες πύλες, μέσα κοινωνικής δικτύωσης ή οποιεσδήποτε ανοιχτές πηγές.
+
+5. ΜΗ ΚΑΤΑΣΤΡΑΤΗΓΗΣΗ
+5.1. Ο Χρήστης συμφωνεί ρητά να μην παρακάμψει, καταστρατηγήσει ή αποφύγει την Epirus Assets, είτε άμεσα είτε έμμεσα, με σκοπό να ξεκινήσει επαφή, να διαπραγματευτεί ή να συνάψει οποιαδήποτε συναλλαγή με τους ιδιοκτήτες, κατασκευαστές ή εκπροσώπους των ακινήτων που γνωστοποιούνται από την Epirus Assets χωρίς προηγούμενη έγγραφη συγκατάθεση.
+5.2. Σε περίπτωση που οποιοσδήποτε ιδιοκτήτης ή τρίτο μέρος που σχετίζεται με το γνωστοποιημένο έργο επιχειρήσει να επικοινωνήσει απευθείας με τον Χρήστη, ο Χρήστης υποχρεούται να ειδοποιήσει την Epirus Assets εντός σαράντα οκτώ (48) ωρών.
+5.3. Η παρούσα προστασία Μη Καταστρατήγησης παραμένει σε πλήρη ισχύ για διάστημα εικοσιτεσσάρων (24) μηνών από την ημερομηνία παροχής των πληροφοριών του συγκεκριμένου περιουσιακού στοιχείου στον Χρήστη.
+
+6. ΔΙΑΡΚΕΙΑ ΕΜΠΙΣΤΕΥΤΙΚΟΤΗΤΑΣ
+Οι υποχρεώσεις σχετικά με τη μη γνωστοποίηση παραμένουν δεσμευτικές για τον Χρήστη για διάστημα τριών (3) ετών από την ημερομηνία πρόσβασης ή λήψης των Εμπιστευτικών Πληροφοριών.
+
+7. ΕΦΑΡΜΟΣΤΕΟ ΔΙΚΑΙΟ ΚΑΙ ΔΙΚΑΙΟΔΟΣΙΑ
+Οι παρόντες Όροι διέπονται από και ερμηνεύονται σύμφωνα με τους νόμους της Ελληνικής Δημοκρατίας. Οποιαδήποτε διαφορά προκύψει από ή σε σχέση με τους παρόντες Όρους υπόκειται στην αποκλειστική δικαιοδοσία των αρμόδιων Δικαστηρίων των Ιωαννίνων, Ελλάδα.`,
+    nda_checkbox:    "Διάβασα και συμφωνώ με την παραπάνω Συμφωνία Εμπιστευτικότητας",
+    gdpr_checkbox:   "Συναινώ στην επεξεργασία των προσωπικών μου δεδομένων",
+    gdpr_body:       "Η Epirus Assets συλλέγει το όνομα και τη διεύθυνση email σας αποκλειστικά για την καταγραφή της συμφωνίας σας με τους παραπάνω όρους εμπιστευτικότητας. Τα δεδομένα σας δεν θα κοινοποιηθούν σε τρίτους, δεν θα χρησιμοποιηθούν για εμπορικούς σκοπούς και δεν θα διατηρηθούν πέραν της διάρκειας της επαγγελματικής μας σχέσης. Μπορείτε να ζητήσετε τη διαγραφή των δεδομένων σας ανά πάσα στιγμή επικοινωνώντας με το info@epirusassets.com. Η συναίνεση αυτή δίνεται σύμφωνα με τον Κανονισμό (ΕΕ) 2016/679 (GDPR).",
+    name_label:      "Ονοματεπώνυμο",
+    name_placeholder:"Το πλήρες όνομά σας",
+    email_label:     "Διεύθυνση Email",
+    email_placeholder:"your@email.com",
+    submit_btn:      "Επιβεβαίωση & Προβολή Ακινήτων",
+    success_greeting:"Σας ευχαριστούμε, {name}.",
+    success_title:   "Έχετε πλέον πρόσβαση στα παρακάτω ακίνητα.",
+    success_subtitle:"Σας ευχαριστούμε για την επιβεβαίωση της συμφωνίας σας.",
+    view_listing:    "Δείτε την καταχώρηση →",
+    invalid_ref:     "Ο σύνδεσμος φαίνεται να είναι ελλιπής. Επικοινωνήστε μαζί μας για να λάβετε τον προσωποποιημένο σύνδεσμό σας."
+  }
+};
+
+// ===================================================================
+// END CONFIGURATION
+// ===================================================================
+
+
+// ── State ────────────────────────────────────────────────────────────
+let currentLang = "en";
+let currentRef  = null;
+
+// ── Language ─────────────────────────────────────────────────────────
+function setLanguage(lang) {
+  if (!UI_STRINGS[lang]) return;
+  currentLang = lang;
+  localStorage.setItem("epirus_lang", lang);
+
+  const strings = UI_STRINGS[lang];
+
+  // Update all data-i18n text nodes
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (strings[key] !== undefined) el.textContent = strings[key];
+  });
+
+  // Update all data-i18n-placeholder attributes
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (strings[key]) el.placeholder = strings[key];
+  });
+
+  // Re-render NDA scrollable text
+  renderNdaText(lang);
+
+  // Update invalid ref message if shown
+  const invalidMsg = document.getElementById("invalidMsg");
+  if (invalidMsg) invalidMsg.textContent = strings.invalid_ref;
+
+  // Update lang switcher button states + aria-pressed
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+
+  document.documentElement.lang = lang === "el" ? "el" : "en";
+}
+
+function renderNdaText(lang) {
+  const box = document.getElementById("ndaTextBox");
+  if (!box) return;
+  const rawText = UI_STRINGS[lang].nda_body || "";
+  // Split on double newlines to create paragraphs
+  const paras = rawText.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+  box.innerHTML = paras.map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
+}
+
+// ── Ref validation ───────────────────────────────────────────────────
+function getRefParam() {
+  return new URLSearchParams(window.location.search).get("ref") || "";
+}
+
+function showInvalidState() {
+  document.getElementById("invalidState").style.display = "block";
+  document.getElementById("ndaSection").style.display = "none";
+}
+
+// ── Form validation ──────────────────────────────────────────────────
+function validateForm() {
+  const name    = document.getElementById("fieldName").value.trim();
+  const email   = document.getElementById("fieldEmail").value.trim();
+  const ndaOk   = document.getElementById("checkNda").checked;
+  const gdprOk  = document.getElementById("checkGdpr").checked;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const allOk   = name.length > 0 && emailOk && ndaOk && gdprOk;
+  document.getElementById("submitBtn").disabled = !allOk;
+}
+
+// ── Property cards ───────────────────────────────────────────────────
+function renderPropertyCards(properties) {
+  const container = document.getElementById("propertyCards");
+  const linkLabel = UI_STRINGS[currentLang].view_listing || "View listing →";
+  container.innerHTML = properties.map(prop => `
+    <article class="property-card">
+      <div class="property-card-name">${escapeHtml(prop.name)}</div>
+      <div class="property-card-desc">${escapeHtml(prop.description)}</div>
+      <a class="property-card-link" href="${escapeAttr(prop.url)}" target="_blank" rel="noopener">
+        ${linkLabel}
+      </a>
+    </article>
+  `).join("");
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escapeAttr(str) {
+  // Only allow relative paths and trusted same-origin URLs for property links
+  const s = String(str);
+  if (/^https?:\/\//i.test(s)) return "#"; // block absolute URLs in config
+  return s.replace(/"/g, "%22");
+}
+
+// ── Success reveal ───────────────────────────────────────────────────
+function revealLinks(name, properties) {
+  const strings  = UI_STRINGS[currentLang];
+  const ndaSection     = document.getElementById("ndaSection");
+  const successSection = document.getElementById("successSection");
+  const greeting       = document.getElementById("successGreeting");
+
+  greeting.textContent = strings.success_greeting.replace("{name}", name);
+  renderPropertyCards(properties);
+
+  // Fade out form
+  ndaSection.style.transition = "opacity 0.3s ease";
+  ndaSection.style.opacity    = "0";
+
+  setTimeout(() => {
+    ndaSection.style.display = "none";
+    successSection.classList.add("visible");
+    // Trigger reflow before fading in
+    void successSection.offsetHeight;
+    successSection.classList.add("faded-in");
+    console.log("[NDA] Links revealed for:", name);
+  }, 300);
+}
+
+// ── Formspree submit ─────────────────────────────────────────────────
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById("fieldName").value.trim();
+  const email   = document.getElementById("fieldEmail").value.trim();
+  const refData = NDA_REFS[currentRef];
+  const submitBtn = document.getElementById("submitBtn");
+
+  submitBtn.disabled    = true;
+  submitBtn.textContent = "…";
+
+  const payload = {
+    name,
+    email,
+    ref:        currentRef,
+    ref_label:  refData.label,
+    nda_agreed: "Yes",
+    gdpr_consent: "Yes",
+    timestamp:  new Date().toISOString(),
+    page_url:   window.location.href
+  };
+
+  console.log("[NDA] Formspree call start", { ref: currentRef, email });
+
+  try {
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept":       "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      console.log("[NDA] Formspree call success");
+    } else {
+      console.error("[NDA] Formspree call failed, status:", response.status, "— proceeding anyway");
+    }
+  } catch (err) {
+    console.error("[NDA] Formspree call error:", err, "— proceeding anyway");
+  }
+
+  // Always reveal links — do not block the client on notification failure
+  revealLinks(name, refData.properties);
+}
+
+// ── Init ─────────────────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Determine initial language: saved preference > browser language > EN
+  const savedLang  = localStorage.getItem("epirus_lang");
+  const browserLang = (navigator.language || "").toLowerCase();
+  const initLang   = savedLang || (browserLang.startsWith("el") ? "el" : "en");
+
+  // Read and validate ref param
+  currentRef = getRefParam();
+  console.log("[NDA] ref param read:", currentRef || "(none)");
+
+  const refData = currentRef ? NDA_REFS[currentRef] : null;
+
+  if (!refData) {
+    setLanguage(initLang);
+    showInvalidState();
+    return;
+  }
+
+  // Valid ref — show the NDA form
+  document.getElementById("ndaSection").style.display = "block";
+  setLanguage(initLang);
+
+  // Wire up live form validation
+  ["fieldName", "fieldEmail", "checkNda", "checkGdpr"].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener("input",  validateForm);
+    el.addEventListener("change", validateForm);
+  });
+
+  // Submit handler
+  document.getElementById("ndaForm").addEventListener("submit", handleSubmit);
+
+  // Language switcher
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+});
+</script>
+
+</body>
+</html>
