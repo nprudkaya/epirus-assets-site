@@ -1,39 +1,44 @@
-# Investment teaser: Athens Urban Lifestyle Hotel
+# Acropolis View Lifestyle Hotel — Athens City Centre
 
-Exclusive opportunity to acquire and complete a hotel in the heart of Athens.
+## Property Overview
 
-## Project overview
+A nine-storey shell-and-core hotel in central Athens with structural works and external facade complete, active construction permit in place (Revision AA 925790). 64 guest rooms (25–36 m²), a 300 m² basement Wellness & SPA zone, and a panoramic rooftop bar with direct, unobstructed views of the Acropolis and the Parthenon. Located within 2 km of Syntagma and Monastiraki Squares — 10 minutes on foot to the primary tourist and business demand catchment. Shell-and-core status transfers structural risk to the seller while giving the acquirer full control over interior specification, brand, and operator.
 
-- **Location:** Athens City Center (within a 2 km radius of Syntagma and Monastiraki Squares).
-- **Status:** External facade and structural works completed ("Shell & Core"). Active construction permit in place (Revision AA 925790).
-- **Asset:** 9-story building including a basement and a functional rooftop.
-- **Key Specifications:** 64 guest rooms (25–36 m²), Wellness & SPA area (300 m²), panoramic rooftop pool.
+## Financial Summary
 
-## Unique selling proposition
+### Scenario 1 — Master Lease (Operational Management)
 
-- **The Million-Dollar View:** A signature rooftop bar and pool offering direct, unobstructed views of the Acropolis and the Parthenon — a primary tourist magnet and driver for high ADR.
-- **Strategic Location:** Situated in the epicenter of tourist and business traffic (10 mins to key landmarks, 26 mins to Piraeus Port).
-- **Ready for Finishing:** The "shell & core" status eliminates structural construction risks and allows the buyer to implement a custom design for a 4* Deluxe or 5* boutique concept.
-- **Smart-Hotel Infrastructure:** The project is designed for modern automation (MEP systems) and efficient space utilization to maximize profitability.
+| Metric | Value |
+|---|---|
+| Annual Rent | €500,000 / year |
+| Rent Holiday | 2 years |
+| Lease Term | 40 years |
+| Completion CAPEX | $3,500,000 – $4,500,000 |
+| Target ROE | **30–35%** |
 
-## Investment scenarios
+### Scenario 2 — Full Acquisition
 
-| Metric | Scenario 1: Master Lease | Scenario 2: Asset Acquisition |
-|---|---|---|
-| Entry Type | Operational Management (35 years) | Full Ownership of the Asset |
-| Purchase Price / Rent | €40,000 / month (2-year rent holiday) | €12,000,000 |
-| Completion CAPEX | $3.5M – $4.5M | €4,000,000 |
-| Target Return (ROE/Yield) | **30–35% ROE** | **8.25% Yield** |
+| Metric | Value |
+|---|---|
+| Selling Price | €12,000,000 |
+| CAPEX (fit-out) | €4,000,000 |
+| **Total Investment** | **€16,000,000** |
+| Projected Annual NOI | €1,320,000 |
+| **Yield (ROI)** | **8.25%** |
+| Payback Period | 12.1 years * |
+| Stabilised Market Value | €22,000,000 (6% cap rate) |
+| Equity Gain (appreciation) | ~€6,000,000 (37.5%) |
 
-## Financial potential (asset acquisition)
+\* Payback period calculated from Total Investment and Annual NOI stated in the teaser.
 
-- **Total Project Budget:** €16,000,000 (including acquisition and fit-out).
-- **Projected Annual NOI:** €1,320,000.
-- **Capitalization:** Estimated market value upon stabilization — €22,000,000 (at a 6% Cap Rate).
-- **Equity Gain:** Capital appreciation of ~€6,000,000 (37.5%).
+## Legal & Investment Profile
 
-## Investor advantages
+- **Investment Type:** Hospitality / Development completion (shell & core)
+- **Golden Visa Eligible:** Yes — acquisition price of €12,000,000 significantly exceeds all applicable thresholds; teaser explicitly confirms GV eligibility
+- **Ownership Structure:** Freehold (full ownership of the 9-storey building)
+- **Legal Notes:** Active construction permit in place (Revision AA 925790); structural and facade works complete — no permitting risk; buyer assumes interior fit-out only
 
-1. **Quality Control:** Full freedom to install high-spec HVAC, soundproofing, and smart-room technology.
-2. **Golden Visa Shield:** This investment is an ideal vehicle for the Greek Golden Visa program, meeting all minimum requirements.
-3. **Defensive Asset:** Real estate in central Athens is a high-liquidity asset, providing a strong hedge against inflation.
+## Unique Selling Points
+
+- **Irreplaceable rooftop asset:** Direct, unobstructed Acropolis and Parthenon views from a rooftop bar and open terrace — the primary ADR driver in the Athens hospitality market and a feature with no substitute at this central location, confirmed by the projected stabilised value of €22M against a €16M all-in cost.
+- **Two investor profiles, one asset:** The master lease structure delivers 30–35% ROE with a 2-year rent-free period for an operator-investor; the full acquisition delivers 8.25% stabilised yield with ~€6M in built-in capital appreciation — making this simultaneously a yield play and a balance-sheet asset.
